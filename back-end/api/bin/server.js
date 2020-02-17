@@ -8,7 +8,9 @@ const express = require("express"),
   cors = require("cors"),
   compression = require("compression"),
   logger = require("morgan"),
-  helmet = require("helmet");
+  helmet = require("helmet"),
+  swaggerUi = require("swagger-ui-express"),
+  swaggerDocument = require("../documentation/swagger.json");
 
 const app = express();
 
@@ -25,6 +27,7 @@ app.use(compression());
 app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const router = require("express").Router();
 router.get("/", (req, res) => {
