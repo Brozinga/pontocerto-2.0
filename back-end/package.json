@@ -19,16 +19,19 @@
     "eslint-plugin-standard": "^4.0.1"
   },
   "dependencies": {
-    "swagger-ui-express": "^4.1.3",
-    "cross-env": "^7.0.0",
+    "@hapi/joi": "^17.1.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.0",
     "dotenv-json": "^1.0.0",
     "express": "^4.17.1",
     "helmet": "^3.21.2",
+    "is-email": "^1.0.0",
     "mongoose": "^5.9.1",
     "morgan": "^1.9.1",
+    "superstruct": "^0.8.3",
+    "swagger-ui-express": "^4.1.3",
     "winston": "^3.2.1"
   }
 }

@@ -1,7 +1,6 @@
 "use strict";
 
 require("../env");
-
 require("../../infra/context/mongodb");
 
 const express = require("express"),
@@ -31,7 +30,20 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const router = require("express").Router();
 router.get("/", (req, res) => {
-  res.json("Testando a API");
+  const User = require("../../domain/entities/user");
+
+  try {
+    const use = User.validate({
+      Id: "111",
+      Name: "Fernanod",
+      Email: "fernando.moraes@fcamara.com.br",
+      EntryTime: new Date("2020-02-20T06:08:00.618Z")
+    });
+
+    res.json(use);
+  } catch (error) {
+    res.json(error);
+  }
 });
 
 app.use(router);
