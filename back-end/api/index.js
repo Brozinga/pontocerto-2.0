@@ -6,7 +6,20 @@ const server = require("http").Server(app);
 
 server.listen(process.env.PORT, () => {
   console.log(
-    "\x1b[32m%s\x1b[0m",
-    `\nAPI rodando na porta: ${process.env.PORT} no ambiente: ${process.env.NODE_ENV}\n`
+    `\x1b[35mAPI RUNNING - PORT: \x1b[37m${
+      process.env.PORT
+    } \x1b[35mIN ENVIRONMENT: \x1b[37m${process.env.NODE_ENV.toLocaleUpperCase()}\x1b[0m`
+  );
+  //DRAW TEXT ASCII TO CONSOLE
+  console.log(
+    `%c 
+ █████╗ ██████╗ ██╗    ███╗   ██╗ ██████╗ ██████╗ ███████╗        ██╗███████╗    ██████╗ ██████╗ ██████╗ 
+██╔══██╗██╔══██╗██║    ████╗  ██║██╔═══██╗██╔══██╗██╔════╝        ██║██╔════╝    ██╔══██╗██╔══██╗██╔══██╗
+███████║██████╔╝██║    ██╔██╗ ██║██║   ██║██║  ██║█████╗          ██║███████╗    ██║  ██║██║  ██║██║  ██║
+██╔══██║██╔═══╝ ██║    ██║╚██╗██║██║   ██║██║  ██║██╔══╝     ██   ██║╚════██║    ██║  ██║██║  ██║██║  ██║
+██║  ██║██║     ██║    ██║ ╚████║╚██████╔╝██████╔╝███████╗██╗╚█████╔╝███████║    ██████╔╝██████╔╝██████╔╝
+╚═╝  ╚═╝╚═╝     ╚═╝    ╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝ ╚════╝ ╚══════╝    ╚═════╝ ╚═════╝ ╚═════╝ 
+`,
+    "font-family:monospace"
   );
 });

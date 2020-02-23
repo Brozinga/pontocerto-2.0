@@ -33,18 +33,18 @@ router.get("/", (req, res) => {
   const User = require("../../domain/entities/user");
 
   try {
-    let _user = User.CreateUser({
-      Nome: "Fernnado",
-      Email: "fernando@fcamara.com.br",
-      Password: "Broz",
-      CheckPassword: "Broz"
-    });
+    let _user = User.NewUserObject(
+      "",
+      "fernandofcamara.com.br",
+      "Brozinga",
+      "Brozinga",
+      new Date(),
+      new Date()
+    );
 
-    console.log(_user);
-
-    res.json(use);
+    res.json(_user);
   } catch (error) {
-    res.json(error);
+    res.status(400).json(error);
   }
 });
 

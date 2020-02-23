@@ -1,44 +1,29 @@
 "use strict";
 
 const model = require("@hapi/joi");
-const passCrypt = require("../../shared/PasswordHash.js")(10);
-const EAcessType = required("../enums/eAcessTypes.js");
+const passCrypt = require("../../shared/PasswordHash.js")();
+const EAcessType = require("../enums/eAcessTypes.js");
 
 const User = model
   .object({
     Id: model.string(),
-    Name: model
-      .string()
-      .min(3)
-      .max(30)
-      .uppercase()
-      .trim()
-      .required(),
-    Email: model
-      .string()
-      .email()
-      .lowercase()
-      .trim()
-      .min(6)
-      .required(),
-    Password: model
-      .string()
-      .min(6)
-      .alphanum()
-      .required(),
+    Name: model.string().min(3).uppercase().trim().required(),
+    Email: model.string().email().lowercase().trim().required(),
+    Password: model.string().min(6).required(),
+    CheckPassword: model.ref("Password"),
     IsActive: model.bool().default(true),
     AcessType: model
       .valid(EAcessType.ADMIN, EAcessType.BASICUSER)
-      .default(EAcessType.BASICUSER)
-      .required(),
+      .default(EAcessType.BASICUSER),
     EntryTime: model.date().required(),
     ExitTime: model.date().required(),
     CreatedAt: model.date().default(new Date()),
     UpdatedAt: model.date()
   })
+  .with("CheckPassword", "Password")
   .options({ abortEarly: false });
 
-User.prototype.CreateUser = ({
+const NewUserObject = (
   Name,
   Email,
   Password,
@@ -47,19 +32,30 @@ User.prototype.CreateUser = ({
   ExitTime,
   AcessType,
   IsActive
-}) => {
-  passCrypt.passwordCompare(Password, CheckPassword);
-  Password = passCrypt.createPasswordHash(Password);
+) => {
+  let _user = {
+    Name: Name,
+    Email: Email,
+    Password: Password,
+    CheckPassword: CheckPassword,
+    EntryTime: EntryTime,
+    ExitTime: ExitTime,
+    AcessType: AcessType,
+    IsActive: IsActive
+  };
 
-  return this.validate({
-    Name,
-    Email,
-    Password,
-    IsActive,
-    EntryTime,
-    ExitTime,
-    AcessType
-  });
+  let validItem = User.validate(_user);
+
+  if (validItem.error) throw validItem.error.details;
+
+  delete validItem.value.CheckPassword;
+
+  validItem.value.Password = passCrypt.createPasswordHash(_user.Password);
+
+  return validItem.value;
 };
 
-module.exports = User;
+module.exports = {
+  ...User,
+  NewUserObject
+};
