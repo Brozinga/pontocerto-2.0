@@ -2,7 +2,6 @@
 
 require("../env");
 require("../../infra/context/mongodb");
-const _logger = require("../../shared/WriteLogger/index");
 
 const express = require("express"),
   cors = require("cors"),
@@ -30,23 +29,11 @@ app.use(express.json());
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const router = require("express").Router();
-router.get("/", (req, res) => {
-  const Schedule = require("../../domain/entities/schedule");
+router.get("/", async (req, res) => {
+  const us = require("../../services/UserServices");
+  let _us = await us.CreateUser();
 
-  try {
-    let _user = Schedule.NewScheduleObject(
-      "",
-      "fernandofcamara.com.br",
-      "Brozinga",
-      "Brozinga",
-      new Date(),
-      new Date()
-    );
-
-    res.json(_user);
-  } catch (error) {
-    res.status(400).json(_logger.logErrors("asdate srds fdsf sdf sd ", 400));
-  }
+  res.status(_us.status).json(_us);
 });
 
 app.use(router);

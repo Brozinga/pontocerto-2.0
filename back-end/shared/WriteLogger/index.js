@@ -1,8 +1,10 @@
-const logger = require("./config");
+const logger = require("./config")({
+  location: "api/logs"
+});
 const moment = require("moment");
 const uuid = require("uuid");
 
-const ErrorResponse = require("../../domain/httpResponses/ErrorResponse");
+const ErrorResponse = require("../../domain/httpResponses/BasicResponse");
 
 const stringErrorProduction =
   "Ouve um erro no servidor, fale com o Administrador";
@@ -21,16 +23,16 @@ module.exports.logErrors = (error, statusCode = null, lang = null) => {
 
   switch (_statusCode) {
     case 400:
-      return ErrorResponse(400, error);
+      return ErrorResponse(400, error, true);
 
     case 401:
-      return ErrorResponse(401, error);
+      return ErrorResponse(401, error, true);
 
     case 403:
-      return ErrorResponse(403, error);
+      return ErrorResponse(403, error, true);
 
     case 404:
-      return ErrorResponse(404, error);
+      return ErrorResponse(404, error, true);
 
     default:
       logger.stream.write(
@@ -39,7 +41,7 @@ module.exports.logErrors = (error, statusCode = null, lang = null) => {
         )}`
       );
       return env
-        ? ErrorResponse(500, stringErrorProduction, errorCode)
-        : ErrorResponse(500, error, errorCode);
+        ? ErrorResponse(500, stringErrorProduction, true, errorCode)
+        : ErrorResponse(500, error, true, errorCode);
   }
 };

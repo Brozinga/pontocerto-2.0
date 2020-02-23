@@ -24,9 +24,9 @@ const NewScheduleObject = (Description, UserId, EntryTime, ExitTime) => {
 
   let validItem = Schedule.validate(_schedule);
 
-  if (validItem.error) throw validItem.error.details;
+  // if (validItem.error) throw validItem.error.details;
 
-  return validItem.value;
+  return validItem;
 };
 
 module.exports = {

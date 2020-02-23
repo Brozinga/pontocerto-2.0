@@ -1,7 +1,7 @@
 "use strict";
 
 const model = require("@hapi/joi");
-const passCrypt = require("../../shared/PasswordHash.js")();
+const passCrypt = require("../../shared/PasswordHash")();
 const EAcessType = require("../enums/eAcessTypes.js");
 
 const User = model
@@ -46,13 +46,13 @@ const NewUserObject = (
 
   let validItem = User.validate(_user);
 
-  if (validItem.error) throw validItem.error.details;
+  // if (validItem.error) throw validItem.error.details;
 
   delete validItem.value.CheckPassword;
 
   validItem.value.Password = passCrypt.createPasswordHash(_user.Password);
 
-  return validItem.value;
+  return validItem;
 };
 
 module.exports = {
