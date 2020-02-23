@@ -2,6 +2,7 @@
 
 require("../env");
 require("../../infra/context/mongodb");
+const _logger = require("../../shared/WriteLogger/index");
 
 const express = require("express"),
   cors = require("cors"),
@@ -30,10 +31,10 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const router = require("express").Router();
 router.get("/", (req, res) => {
-  const User = require("../../domain/entities/user");
+  const Schedule = require("../../domain/entities/schedule");
 
   try {
-    let _user = User.NewUserObject(
+    let _user = Schedule.NewScheduleObject(
       "",
       "fernandofcamara.com.br",
       "Brozinga",
@@ -44,7 +45,7 @@ router.get("/", (req, res) => {
 
     res.json(_user);
   } catch (error) {
-    res.status(400).json(error);
+    res.status(400).json(_logger.logErrors("asdate srds fdsf sdf sd ", 400));
   }
 });
 
