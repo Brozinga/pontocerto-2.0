@@ -2,18 +2,21 @@
 
 require("../env");
 require("../../infra/context/mongodb");
-
 const express = require("express"),
   cors = require("cors"),
   compression = require("compression"),
   logger = require("morgan"),
   helmet = require("helmet"),
   swaggerUi = require("swagger-ui-express"),
-  swaggerDocument = require("../documentation/swagger.json");
+  swaggerDocument = require("../documentation/swagger.json"),
+  loggerFile = require("../../shared/WriteLogger");
+
+require("express-async-errors");
 
 const version = process.env.VERSION;
 const app = express();
 
+app.use(require("express-status-monitor")());
 app.use(
   cors({
     origin: "*",
@@ -34,5 +37,11 @@ app.use(
 );
 
 app.use(require("../routes"));
+
+//ERROR HANDLER -- TRATAR TODOS OS ERROS DO AP
+app.use(async (err, req, res, next) => {
+  const errorLog = loggerFile.logErrors(err, 500, req);
+  res.status(errorLog.status).json(errorLog);
+});
 
 module.exports = app;

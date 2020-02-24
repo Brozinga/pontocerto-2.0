@@ -6,23 +6,28 @@ const _logger = require("../shared/WriteLogger");
 
 module.exports = {
   async CreateUser(Body) {
-    try {
-      let _user = User.NewUserObject(
-        Body.name,
-        Body.email,
-        Body.password,
-        Body.password_verify,
-        Body.entry_time,
-        Body.exit_time
-      );
+    let _user = User.NewUserObject(
+      Body.name,
+      Body.email,
+      Body.password,
+      Body.password_verify,
+      Body.entry_time,
+      Body.exit_time,
+      Body.acess_type,
+      Body.is_active
+    );
 
-      if (_user.error) return response(400, _user.error.details, true);
+    if (_user.error) return response(400, _user.error.details, true);
 
-      let userInserted = await UserRepository.CreateUser(_user.value);
+    let verifyUserById = await UserRepository.FindUserByEmail(
+      _user.value.Email
+    );
 
-      return response(200, userInserted);
-    } catch (error) {
-      return _logger.logErrors(error);
-    }
+    if (verifyUserById)
+      return response(422, "Este email já está cadastrado!", true);
+
+    let userInserted = await UserRepository.CreateUser(_user.value);
+
+    return response(200, userInserted);
   }
 };

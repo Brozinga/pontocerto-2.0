@@ -1,6 +1,4 @@
 const Response = (status, message, error = false, code = null) => {
-  //  if (typeof message === "string") message = erroEntrada;
-
   return code
     ? {
         code,

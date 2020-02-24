@@ -55,6 +55,12 @@
               "$ref": "#/definitions/Error400"
             }
           },
+          "422": {
+            "description": "Unprocessable Entity",
+            "schema": {
+              "$ref": "#/definitions/Error422"
+            }
+          },
           "500": {
             "description": "Internal Server Error",
             "schema": {
@@ -70,7 +76,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Users"
+              "$ref": "#/definitions/User"
             }
           }
         }
@@ -175,10 +181,20 @@
           "type": "string",
           "uniqueItems": true,
           "format": "date-time"
+        },
+        "acess_type": {
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["admin", "user"],
+          "example": "user"
+        },
+        "is_active": {
+          "type": "boolean",
+          "uniqueItems": true,
+          "example": "true"
         }
       }
     },
-
     "OK200": {
       "properties": {
         "status": {
@@ -228,6 +244,22 @@
         "message": {
           "type": "string",
           "example": "Ouve um erro no servidor, fale com o Administrador!"
+        }
+      }
+    },
+    "Error422": {
+      "properties": {
+        "status": {
+          "type": "integer",
+          "example": 422
+        },
+        "error": {
+          "type": "boolean",
+          "example": true
+        },
+        "message": {
+          "type": "string",
+          "example": "Este email já está cadastrado!"
         }
       }
     }

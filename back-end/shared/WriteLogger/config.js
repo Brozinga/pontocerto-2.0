@@ -26,6 +26,8 @@ module.exports = _options => {
   }; // 5MB
 
   let logger = winston.createLogger({
+    level: "error",
+    format: winston.format.json(),
     transports: [
       new winston.transports.File(options.file),
       new winston.transports.Console(options.console)
