@@ -1,3 +1,5 @@
 {
-  "URL": "Prod"
+  "URL": "127.0.0.1",
+  "PORT": 3001,
+  "MONGO_URL": "mongodb://localhost:27017"
 }

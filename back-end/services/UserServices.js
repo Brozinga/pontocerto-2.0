@@ -1,6 +1,6 @@
 const response = require("../domain/httpResponses/BasicResponse");
 const User = require("../domain/entities/user");
-const UserRepository = require("../infra/repository/UserRepository");
+const UserRepository = require("../infra/repository/userRepository");
 
 const _logger = require("../shared/WriteLogger");
 
@@ -8,15 +8,15 @@ module.exports = {
   async CreateUser(Body) {
     try {
       let _user = User.NewUserObject(
-        "Fernando Brozinga",
-        "fernando@fcamara.com.br",
-        "Brozinga",
-        "Brozinga",
-        new Date(),
-        new Date()
+        Body.name,
+        Body.email,
+        Body.password,
+        Body.password_verify,
+        Body.entry_time,
+        Body.exit_time
       );
 
-      if (_user.error) return response(404, _user.error.details, true);
+      if (_user.error) return response(400, _user.error.details, true);
 
       let userInserted = await UserRepository.CreateUser(_user.value);
 

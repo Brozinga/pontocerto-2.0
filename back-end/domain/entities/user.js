@@ -46,10 +46,9 @@ const NewUserObject = (
 
   let validItem = User.validate(_user);
 
-  // if (validItem.error) throw validItem.error.details;
+  if (validItem.error) return validItem;
 
   delete validItem.value.CheckPassword;
-
   validItem.value.Password = passCrypt.createPasswordHash(_user.Password);
 
   return validItem;

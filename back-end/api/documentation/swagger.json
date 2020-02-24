@@ -2,8 +2,13 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Yet Another Node.js Blogg Application API",
-    "description": "Yet Another Node.js Blogg Application API",
+    "title": "API Node.js DDD",
+    "description": "API Node.js using principle of DDD for project Ponto Certo",
+    "contact": {
+      "name": "Fernando Brozinga",
+      "email": "fbrozinga@outlook.com",
+      "url": "https://google.com.br"
+    },
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
@@ -14,17 +19,18 @@
   "tags": [
     {
       "name": "Users",
-      "description": "API for users in the system"
+      "description": "API for management users."
     }
   ],
   "schemes": ["http"],
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/users": {
+    "/user": {
       "post": {
         "tags": ["Users"],
-        "description": "Create new user in system",
+        "summary": "Create new User in API",
+        "description": "Create new User",
         "parameters": [
           {
             "name": "user",
@@ -40,7 +46,19 @@
           "200": {
             "description": "New user is created",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/OK200"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error500"
             }
           }
         }
@@ -118,27 +136,100 @@
   },
   "definitions": {
     "User": {
-      "required": ["email", "_id"],
+      "required": [
+        "name",
+        "email",
+        "password",
+        "password_verify",
+        "entry_time",
+        "exit_time"
+      ],
       "properties": {
-        "_id": {
+        "name": {
           "type": "string",
-          "uniqueItems": true
+          "uniqueItems": true,
+          "example": "fernando brozinga"
         },
         "email": {
           "type": "string",
-          "uniqueItems": true
+          "uniqueItems": true,
+          "format": "email",
+          "example": "email@email.com.br"
         },
-        "lastName": {
-          "type": "string"
+        "password": {
+          "type": "string",
+          "uniqueItems": true,
+          "minLength": 6
         },
-        "firstName": {
-          "type": "string"
+        "password_verify": {
+          "type": "string",
+          "uniqueItems": true,
+          "minLength": 6
+        },
+        "entry_time": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time"
+        },
+        "exit_time": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time"
         }
       }
     },
-    "Users": {
-      "type": "array",
-      "$ref": "#/definitions/User"
+
+    "OK200": {
+      "properties": {
+        "status": {
+          "type": "integer",
+          "example": 200
+        },
+        "error": {
+          "type": "boolean",
+          "example": false
+        },
+        "message": {
+          "type": "object",
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "Error400": {
+      "properties": {
+        "status": {
+          "type": "integer",
+          "example": 400
+        },
+        "error": {
+          "type": "boolean",
+          "example": true
+        },
+        "message": {
+          "type": "string",
+          "example": "Bad Request"
+        }
+      }
+    },
+    "Error500": {
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "BBCF1648"
+        },
+        "status": {
+          "type": "integer",
+          "example": 500
+        },
+        "error": {
+          "type": "boolean",
+          "example": true
+        },
+        "message": {
+          "type": "string",
+          "example": "Ouve um erro no servidor, fale com o Administrador!"
+        }
+      }
     }
   }
 }

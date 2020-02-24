@@ -1,5 +1,6 @@
 {
   "URL": "127.0.0.1",
   "PORT": 3000,
-  "MONGO_URL": "mongodb://localhost:27017"
+  "MONGO_URL": "mongodb://localhost:27017",
+  "VERSION": "/api/v1"
 }

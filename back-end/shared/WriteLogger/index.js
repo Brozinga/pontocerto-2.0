@@ -7,7 +7,7 @@ const uuid = require("uuid");
 const ErrorResponse = require("../../domain/httpResponses/BasicResponse");
 
 const stringErrorProduction =
-  "Ouve um erro no servidor, fale com o Administrador";
+  "Ouve um erro no servidor, fale com o Administrador!";
 
 let env = process.env.NODE_ENV !== "development" ? true : false;
 
@@ -16,10 +16,10 @@ module.exports.logErrors = (error, statusCode = null, lang = null) => {
   let errorCode = uuid().toUpperCase().substring(0, 8);
 
   let dataAgora = moment.utc().format("DD-MM-YYYY HH:mm:ss");
-
+  console.log(typeof error);
   let erroEntrada = error.toString().toLowerCase();
 
-  if (typeof error === "string") error = erroEntrada;
+  if (typeof error === "object") error = erroEntrada;
 
   switch (_statusCode) {
     case 400:

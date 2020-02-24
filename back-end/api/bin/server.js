@@ -11,6 +11,7 @@ const express = require("express"),
   swaggerUi = require("swagger-ui-express"),
   swaggerDocument = require("../documentation/swagger.json");
 
+const version = process.env.VERSION;
 const app = express();
 
 app.use(
@@ -26,16 +27,12 @@ app.use(compression());
 app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(
+  `${version}/api-docs`,
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument)
+);
 
-const router = require("express").Router();
-router.get("/", async (req, res) => {
-  const us = require("../../services/UserServices");
-  let _us = await us.CreateUser();
-
-  res.status(_us.status).json(_us);
-});
-
-app.use(router);
+app.use(require("../routes"));
 
 module.exports = app;
