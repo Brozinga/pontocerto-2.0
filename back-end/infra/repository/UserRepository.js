@@ -1,4 +1,5 @@
 const UserMapping = require("../mapping/mongo/userMapping");
+const mongoose = require("mongoose");
 
 module.exports = {
   async CreateUser(User) {
@@ -16,8 +17,12 @@ module.exports = {
     return _user;
   },
 
-  async UpdateUser(User) {
-    let _user = await UserMapping.findByIdAndUpdate(User);
+  async UpdateUser(Id, User) {
+    let _user = await UserMapping.findByIdAndUpdate(
+      { _id: mongoose.Types.ObjectId(Id) },
+      User,
+      { new: true }
+    );
     return _user;
   }
 };

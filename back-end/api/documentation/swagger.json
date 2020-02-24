@@ -82,7 +82,7 @@
         }
       }
     },
-    "/users/{userId}": {
+    "/user/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -116,7 +116,7 @@
           }
         }
       },
-      "put": {
+      "patch": {
         "summary": "Update user with give ID",
         "tags": ["Users"],
         "parameters": [
@@ -125,7 +125,7 @@
             "in": "body",
             "description": "User with new values of properties",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/UserUpdate"
             }
           }
         ],
@@ -146,7 +146,7 @@
         "name",
         "email",
         "password",
-        "password_verify",
+        "checkPassword",
         "entry_time",
         "exit_time"
       ],
@@ -167,28 +167,74 @@
           "uniqueItems": true,
           "minLength": 6
         },
-        "password_verify": {
+        "checkPassword": {
           "type": "string",
           "uniqueItems": true,
           "minLength": 6
         },
-        "entry_time": {
+        "entryTime": {
           "type": "string",
           "uniqueItems": true,
           "format": "date-time"
         },
-        "exit_time": {
+        "exitTime": {
           "type": "string",
           "uniqueItems": true,
           "format": "date-time"
         },
-        "acess_type": {
+        "acessType": {
           "type": "string",
           "uniqueItems": true,
           "enum": ["admin", "user"],
           "example": "user"
         },
-        "is_active": {
+        "isActive": {
+          "type": "boolean",
+          "uniqueItems": true,
+          "example": "true"
+        }
+      }
+    },
+    "UserUpdate": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "uniqueItems": true,
+          "example": "fernando brozinga"
+        },
+        "email": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "email",
+          "example": "email@email.com.br"
+        },
+        "password": {
+          "type": "string",
+          "uniqueItems": true,
+          "minLength": 6
+        },
+        "checkPassword": {
+          "type": "string",
+          "uniqueItems": true,
+          "minLength": 6
+        },
+        "entryTime": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time"
+        },
+        "exitTime": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time"
+        },
+        "acessType": {
+          "type": "string",
+          "uniqueItems": true,
+          "enum": ["admin", "user"],
+          "example": "user"
+        },
+        "isActive": {
           "type": "boolean",
           "uniqueItems": true,
           "example": "true"

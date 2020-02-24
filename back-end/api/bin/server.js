@@ -9,7 +9,8 @@ const express = require("express"),
   helmet = require("helmet"),
   swaggerUi = require("swagger-ui-express"),
   swaggerDocument = require("../documentation/swagger.json"),
-  loggerFile = require("../../shared/WriteLogger");
+  loggerFile = require("../../shared/WriteLogger"),
+  requestIp = require("request-ip");
 
 require("express-async-errors");
 
@@ -17,6 +18,7 @@ const version = process.env.VERSION;
 const app = express();
 
 app.use(require("express-status-monitor")());
+app.use(requestIp.mw());
 app.use(
   cors({
     origin: "*",
@@ -41,6 +43,7 @@ app.use(require("../routes"));
 //ERROR HANDLER -- TRATAR TODOS OS ERROS DO AP
 app.use(async (err, req, res, next) => {
   const errorLog = loggerFile.logErrors(err, 500, req);
+  console.log(err);
   res.status(errorLog.status).json(errorLog);
 });
 

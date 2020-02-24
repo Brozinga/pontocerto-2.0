@@ -10,11 +10,11 @@ module.exports = {
       Body.name,
       Body.email,
       Body.password,
-      Body.password_verify,
-      Body.entry_time,
-      Body.exit_time,
-      Body.acess_type,
-      Body.is_active
+      Body.checkPassword,
+      Body.entryTime,
+      Body.exitTime,
+      Body.acessType,
+      Body.isActive
     );
 
     if (_user.error) return response(400, _user.error.details, true);
@@ -29,5 +29,39 @@ module.exports = {
     let userInserted = await UserRepository.CreateUser(_user.value);
 
     return response(200, userInserted);
-  }
+  },
+
+  async UpdateUser(Id, Body) {
+    let _findUser = await UserRepository.FindUserById(Id);
+
+    if (!_findUser) return response(404, "Usuário não encontrado!", true);
+
+    let userToUpdated = Object.assign(_findUser, Body);
+
+    let validation = { ...userToUpdated };
+
+    delete validation._doc.__v;
+    delete validation._doc._id;
+
+    validation._doc.acessType = validation._doc.acessType[0];
+
+    let _user = User.validate(userToUpdated._doc);
+
+    if (_user.error) return response(400, _user.error.details, true);
+
+    _user.value.updatedAt = new Date();
+
+    const _userUpdated = await UserRepository.UpdateUser(
+      Id,
+      Object.assign(_findUser, _user.value)
+    );
+
+    return response(200, _userUpdated, false);
+  },
+
+  async GetUserById(Id) {},
+
+  async GetAllUsers() {},
+
+  async DeleteUserById() {}
 };

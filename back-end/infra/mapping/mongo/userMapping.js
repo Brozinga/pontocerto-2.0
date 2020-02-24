@@ -6,13 +6,13 @@ const uniqueValidator = require("mongoose-unique-validator");
 const EAcessType = require("../../../domain/enums/eAcessTypes");
 
 const UserSchema = new mongoose.Schema({
-  Name: {
+  name: {
     type: String,
     required: true,
     trim: true,
     upercase: true
   },
-  Email: {
+  email: {
     type: String,
     required: true,
     trim: true,
@@ -20,33 +20,33 @@ const UserSchema = new mongoose.Schema({
     index: true,
     unique: true
   },
-  Password: {
+  password: {
     type: String,
     required: true
   },
-  IsActive: {
+  isActive: {
     type: Boolean,
     required: true
   },
-  AcessType: [
+  acessType: [
     {
       type: String,
-      enum: [EAcessType.ADMIN, EAcessType.BASICUSER]
+      required: true
     }
   ],
-  EntryTime: {
+  entryTime: {
     type: Date,
     required: true
   },
-  ExitTime: {
+  exitTime: {
     type: Date,
     required: true
   },
-  CreatedAt: {
+  createdAt: {
     type: Date,
     required: true
   },
-  UpdatedAt: {
+  updatedAt: {
     type: Date
   }
 });

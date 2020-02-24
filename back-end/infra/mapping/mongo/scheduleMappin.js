@@ -1,28 +1,28 @@
 const mongoose = require("mongoose");
 
 const ScheduleSchema = new mongoose.Schema({
-  Description: {
+  description: {
     type: String,
     required: true,
     trim: true
   },
-  UserId: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"
   },
-  EntryTime: {
+  entryTime: {
     type: Date,
     required: true
   },
-  ExitTime: {
+  exitTime: {
     type: Date,
     required: true
   },
-  CreatedAt: {
+  createdAt: {
     type: Date,
     required: true
   },
-  UpdatedAt: {
+  updatedAt: {
     type: Date
   }
 });

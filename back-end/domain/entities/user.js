@@ -6,55 +6,52 @@ const EAcessType = require("../enums/eAcessTypes.js");
 
 const User = model
   .object({
-    Id: model.string(),
-    Name: model.string().min(3).uppercase().trim().required(),
-    Email: model.string().email().lowercase().trim().required(),
-    Password: model.string().min(6).required(),
-    CheckPassword: model.ref("Password"),
-    IsActive: model.bool().default(true),
-    AcessType: model
+    _id: model.string(),
+    name: model.string().min(3).uppercase().trim().required(),
+    email: model.string().email().lowercase().trim().required(),
+    password: model.string().min(6).required(),
+    checkPassword: model.ref("password"),
+    isActive: model.bool().default(true),
+    acessType: model
       .valid(EAcessType.ADMIN, EAcessType.BASICUSER)
       .default(EAcessType.BASICUSER),
-    EntryTime: model.date().required(),
-    ExitTime: model.date().required(),
-    CreatedAt: model.date().default(new Date()),
-    UpdatedAt: model.date()
+    entryTime: model.date().required(),
+    exitTime: model.date().required(),
+    createdAt: model.date().default(new Date()),
+    updatedAt: model.date()
   })
-  .with("CheckPassword", "Password")
+  .with("checkPassword", "password")
   .options({ abortEarly: false });
 
-const NewUserObject = (
-  Name,
-  Email,
-  Password,
-  CheckPassword,
-  EntryTime,
-  ExitTime,
-  AcessType,
-  IsActive
+User.NewUserObject = (
+  name,
+  email,
+  password,
+  checkPassword,
+  entryTime,
+  exitTime,
+  acessType,
+  isActive
 ) => {
   let _user = {
-    Name: Name,
-    Email: Email,
-    Password: Password,
-    CheckPassword: CheckPassword,
-    EntryTime: EntryTime,
-    ExitTime: ExitTime,
-    AcessType: AcessType,
-    IsActive: IsActive
+    name,
+    email,
+    password,
+    checkPassword,
+    entryTime,
+    exitTime,
+    acessType,
+    isActive
   };
 
   let validItem = User.validate(_user);
 
   if (validItem.error) return validItem;
 
-  delete validItem.value.CheckPassword;
-  validItem.value.Password = passCrypt.createPasswordHash(_user.Password);
+  delete validItem.value.checkPassword;
+  validItem.value.password = passCrypt.createPasswordHash(_user.password);
 
   return validItem;
 };
 
-module.exports = {
-  ...User,
-  NewUserObject
-};
+module.exports = User;

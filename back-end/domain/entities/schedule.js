@@ -4,13 +4,13 @@ const model = require("@hapi/joi");
 
 const Schedule = model
   .object({
-    Id: model.string(),
-    Description: model.string().min(3).max(30).uppercase().trim().required(),
-    UserId: model.string().required(),
-    EntryTime: model.date().required(),
-    ExitTime: model.date().required(),
-    CreatedAt: model.date().default(new Date()),
-    UpdatedAt: model.date()
+    _id: model.string(),
+    description: model.string().min(3).max(30).uppercase().trim().required(),
+    userId: model.string().required(),
+    entryTime: model.date().required(),
+    exitTime: model.date().required(),
+    createdAt: model.date().default(new Date()),
+    updatedAt: model.date()
   })
   .options({ abortEarly: false });
 
