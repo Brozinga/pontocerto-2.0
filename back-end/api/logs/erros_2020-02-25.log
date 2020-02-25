@@ -1,0 +1,3 @@
+{"message":"DATA: 25-02-2020 00:05:39 | STATUS: 500 | URL: /api/v1/users | METHOD: GET | IP: ::1 | CODIGO: 93FA3FCE | ERRO: TypeError: UserRepository.FindAllUsers is not a function","level":"error"}
+{"message":"DATA: 25-02-2020 01:00:21 | STATUS: 500 | URL: /api/v1/user/5e546c4f4a1d80486887bdfa | METHOD: PATCH | IP: ::1 | CODIGO: A861FC66 | ERRO: SyntaxError: Unexpected token } in JSON at position 46","level":"error"}
+{"message":"DATA: 25-02-2020 03:52:51 | STATUS: 500 | URL: /api/v1/user/password/5e5485c1a8759559c84bc473 | METHOD: PUT | IP: ::1 | CODIGO: 9B9849FB | ERRO: TypeError: Cannot convert undefined or null to object","level":"error"}

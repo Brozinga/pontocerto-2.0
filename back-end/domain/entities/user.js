@@ -12,6 +12,7 @@ const User = model
     password: model.string().min(6).required(),
     checkPassword: model.ref("password"),
     isActive: model.bool().default(true),
+    visible: model.bool().default(true),
     acessType: model
       .valid(EAcessType.ADMIN, EAcessType.BASICUSER)
       .default(EAcessType.BASICUSER),
@@ -50,6 +51,30 @@ User.NewUserObject = (
 
   delete validItem.value.checkPassword;
   validItem.value.password = passCrypt.createPasswordHash(_user.password);
+
+  return validItem;
+};
+
+User.UpdateUser = UserToUpdate => {
+  let validItem = User.validate(UserToUpdate);
+
+  if (validItem.error) return validItem;
+
+  delete validItem.value.password;
+  validItem.value.updatedAt = new Date();
+
+  return validItem;
+};
+
+User.UpdatePassword = UserPassword => {
+  let validItem = User.validate(UserPassword);
+
+  if (validItem.error) return validItem;
+
+  validItem.value.password = passCrypt.createPasswordHash(
+    UserPassword.password
+  );
+  validItem.value.updatedAt = new Date();
 
   return validItem;
 };

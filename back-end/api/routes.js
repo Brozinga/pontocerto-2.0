@@ -5,9 +5,12 @@ const routes = express.Router();
 const version = process.env.VERSION;
 
 routes
-  .get(`${version}/user`, controller.UserCreateController)
-  .post(`${version}/user`, controller.UserCreateController)
-  .get(`${version}/user/:id`, controller.UserCreateController)
-  .patch(`${version}/user/:id`, controller.UserUpdateController);
+  .get(`${version}/users`, controller.GetAllController)
+  .post(`${version}/user`, controller.CreateUserController)
+  .post(`${version}/user/:id`, controller.DeleteUserByIdController)
+  .put(`${version}/user/password/:id`, controller.UpdatePasswordController)
+  .get(`${version}/user/:id`, controller.GetUserByIdController)
+  .get(`${version}/user/email/:email`, controller.GetUserByEmailController)
+  .patch(`${version}/user/:id`, controller.UpdateUserController);
 
 module.exports = routes;

@@ -22,24 +22,27 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true
+    required: true,
+    select: false
   },
   isActive: {
     type: Boolean,
     required: true
   },
-  acessType: [
-    {
-      type: String,
-      required: true
-    }
-  ],
+  acessType: {
+    type: String,
+    required: true
+  },
   entryTime: {
     type: Date,
     required: true
   },
   exitTime: {
     type: Date,
+    required: true
+  },
+  visible: {
+    type: Boolean,
     required: true
   },
   createdAt: {
