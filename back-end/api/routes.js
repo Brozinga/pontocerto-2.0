@@ -20,6 +20,12 @@ const SCHEDULE_WITH_USER = `${version}/schedule/user`;
 //LOGIN
 const LOGIN_URL = `${version}/login`;
 
+_public.get(`/`, (req, res, next) => {
+  process.env.NODE_ENV === "development"
+    ? res.redirect(`${version}/api-docs`)
+    : res.json({ status: 200, error: false, message: "API is Running!" });
+});
+
 _private.get([USERS_URL, `${USER_WITH_EMAIL}/:email`], Permit("admin"));
 _private.post(
   [USER_URL, `${USER_URL}/:id`, `${SCHEDULE_URL}/:id`],
