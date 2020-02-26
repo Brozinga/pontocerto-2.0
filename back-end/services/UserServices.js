@@ -1,12 +1,13 @@
 const response = require("../domain/httpResponses/BasicResponse");
-const User = require("../domain/entities/user");
+const CreateUserSchema = require("../domain/entities/user").CreateUserSchema;
+const UpdateUserSchema = require("../domain/entities/user").UpdateUserSchema;
 const UserRepository = require("../infra/repository/userRepository");
 const isEmail = require("is-email");
 
 const Service = Repository => {
   return {
     async Create(Body) {
-      let _user = User.NewUserObject(
+      let _user = CreateUserSchema.New (
         Body.name,
         Body.email,
         Body.password,
@@ -40,14 +41,7 @@ const Service = Repository => {
           return response(422, "Este email já está cadastrado!", true);
       }
 
-      let userToUpdated = Object.assign(_findUser._doc, Body);
-
-      let validation = { ...userToUpdated };
-
-      delete validation.__v;
-      delete validation._id;
-
-      let _user = User.UpdateUserObject(validation);
+      let _user = UpdateUserSchema.validate(Body);
 
       if (_user.error) return response(400, _user.error.details, true);
 
@@ -76,6 +70,7 @@ const Service = Repository => {
     },
     async GetAll() {
       const _findUser = await Repository.GetAll();
+      if(_findUser.length) return response(404, "Usuários não encontrados", true);
       return response(200, _findUser);
     },
     async UpdatePassword(Id, Password, Checkup) {
@@ -83,23 +78,14 @@ const Service = Repository => {
 
       if (!_findUser) return response(404, "Usuário não encontrado!", true);
 
-      let userToUpdated = Object.assign(_findUser._doc, {
-        password: Password,
-        checkPassword: Checkup
-      });
 
-      let validation = { ...userToUpdated };
-
-      delete validation.__v;
-      delete validation._id;
-
-      let _user = User.UpdatePassword(validation);
+      let _user = UpdateUserSchema.UpdatePassword(validation);
 
       if (_user.error) return response(400, _user.error.details, true);
 
       const _userUpdated = await Repository.Update(
         Id,
-        Object.assign(_findUser, _user.value)
+        _user.value
       );
 
       return response(200, _userUpdated);

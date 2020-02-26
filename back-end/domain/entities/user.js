@@ -4,12 +4,25 @@ const model = require("@hapi/joi");
 const passCrypt = require("../../shared/PasswordHash")();
 const EAcessType = require("../enums/eAcessTypes.js");
 
-const User = model
+const CreateUserSchema = model
   .object({
     _id: model.string(),
-    name: model.string().min(3).uppercase().trim().required(),
-    email: model.string().email().lowercase().trim().required(),
-    password: model.string().min(6).required(),
+    name: model
+      .string()
+      .min(3)
+      .uppercase()
+      .trim()
+      .required(),
+    email: model
+      .string()
+      .email()
+      .lowercase()
+      .trim()
+      .required(),
+    password: model
+      .string()
+      .min(6)
+      .required(),
     checkPassword: model.ref("password"),
     isActive: model.bool().default(true),
     visible: model.bool().default(true),
@@ -24,7 +37,42 @@ const User = model
   .with("checkPassword", "password")
   .options({ abortEarly: false });
 
-User.NewUserObject = (
+const UpdateUserSchema = model
+  .object({
+    _id: model.string(),
+    name: model
+      .string()
+      .min(3)
+      .uppercase()
+      .trim(),
+    email: model
+      .string()
+      .email()
+      .lowercase()
+      .trim(),
+    password: model.string().min(6),
+    checkPassword: model.ref("password"),
+    isActive: model.bool(),
+    visible: model.bool(),
+    acessType: model.valid(EAcessType.ADMIN, EAcessType.BASICUSER),
+    entryTime: model.date(),
+    exitTime: model.date(),
+    createdAt: model.date(),
+    updatedAt: model.date().default(new Date())
+  })
+  .with("checkPassword", "password")
+  .options({ abortEarly: false });
+
+const UpdateUserPasswordSchema = model
+  .object({
+    password: model.string().min(6).required(),
+    checkPassword: model.ref("password"),
+    updatedAt: model.date().default(new Date())
+  })
+  .with("checkPassword", "password")
+  .options({ abortEarly: false });
+
+CreateUserSchema.New = (
   name,
   email,
   password,
@@ -45,7 +93,7 @@ User.NewUserObject = (
     isActive
   };
 
-  let validItem = User.validate(_user);
+  let validItem = CreateUserSchema.validate(_user);
 
   if (validItem.error) return validItem;
 
@@ -55,28 +103,26 @@ User.NewUserObject = (
   return validItem;
 };
 
-User.UpdateUserObject = UserToUpdate => {
-  let validItem = User.validate(UserToUpdate);
+UpdateUserSchema.UpdateUserObject = UserToUpdate => {
+  let validItem = UpdateUserSchema.validate(UserToUpdate);
 
   if (validItem.error) return validItem;
-
-  delete validItem.value.password;
-  validItem.value.updatedAt = new Date();
 
   return validItem;
 };
 
-User.UpdatePassword = UserPassword => {
-  let validItem = User.validate(UserPassword);
+UpdateUserSchema.UpdatePassword = UserPassword => {
+  let validItem = UpdateUserPasswordSchema.validate(UserPassword);
 
   if (validItem.error) return validItem;
 
   validItem.value.password = passCrypt.createPasswordHash(
     UserPassword.password
   );
-  validItem.value.updatedAt = new Date();
-
   return validItem;
 };
 
-module.exports = User;
+module.exports = {
+  CreateUserSchema,
+  UpdateUserSchema
+};
