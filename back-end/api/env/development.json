@@ -2,5 +2,8 @@
   "URL": "127.0.0.1",
   "PORT": 3000,
   "MONGO_URL": "mongodb://localhost:27017",
-  "VERSION": "/api/v1"
+  "VERSION": "/api/v1",
+  "JWT_SALT": "10",
+  "JWT_TIME": "6h",
+  "JWT_SECRET": "qGGziBbuRXk1Zhf4hMnC7o6KPH2XF0pUbgzrj49HN2HLyVNJTwOCbWPdYUjeMtOW"
 }

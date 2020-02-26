@@ -38,7 +38,8 @@ app.use(
   swaggerUi.setup(swaggerDocument)
 );
 
-app.use(require("../routes"));
+app.use(require("../routes").privates);
+app.use(require("../routes").publics);
 
 //ERROR HANDLER -- TRATAR TODOS OS ERROS DO AP
 app.use(async (err, req, res, next) => {

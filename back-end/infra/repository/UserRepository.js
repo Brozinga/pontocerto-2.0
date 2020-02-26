@@ -17,5 +17,13 @@ module.exports = {
   async GetByEmail(email) {
     let _user = await UserMapping.findOne({ email: email, visible: true });
     return _user;
+  },
+
+  async GetByEmailAddPassword(email) {
+    let _user = await UserMapping.findOne({
+      email: email,
+      visible: true
+    }).select("+password");
+    return _user;
   }
 };

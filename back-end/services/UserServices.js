@@ -19,22 +19,22 @@ const Service = Repository => {
 
       if (_user.error) return response(400, _user.error.details, true);
 
-      let verifyUserById = await UserRepository.GetByEmail(_user.value.email);
+      let verifyUserById = await Repository.GetByEmail(_user.value.email);
 
       if (verifyUserById)
         return response(422, "Este email já está cadastrado!", true);
 
-      let userInserted = await UserRepository.Create(_user.value);
+      let userInserted = await Repository.Create(_user.value);
 
       return response(201, userInserted);
     },
     async Update(Id, Body) {
-      let _findUser = await UserRepository.GetByIdAndPassword(Id);
+      let _findUser = await Repository.GetByIdAndPassword(Id);
 
       if (!_findUser) return response(404, "Usuário não encontrado!", true);
 
       if (Body.email) {
-        let verifyEmailUserExists = await UserRepository.GetByEmail(Body.email);
+        let verifyEmailUserExists = await Repository.GetByEmail(Body.email);
 
         if (verifyEmailUserExists)
           return response(422, "Este email já está cadastrado!", true);
@@ -51,7 +51,7 @@ const Service = Repository => {
 
       if (_user.error) return response(400, _user.error.details, true);
 
-      const _userUpdated = await UserRepository.Update(
+      const _userUpdated = await Repository.Update(
         Id,
         Object.assign(_findUser, _user.value)
       );
@@ -59,7 +59,7 @@ const Service = Repository => {
       return response(200, _userUpdated, false);
     },
     async GetById(Id) {
-      const _findUser = await UserRepository.GetById(Id);
+      const _findUser = await Repository.GetById(Id);
 
       if (!_findUser) return response(404, "Usuário não encontrado!", true);
 
@@ -68,18 +68,18 @@ const Service = Repository => {
     async GetByEmail(Email) {
       if (!isEmail(Email)) return response(400, "Email incorreto!", true);
 
-      const _findUser = await UserRepository.GetByEmail(Email);
+      const _findUser = await Repository.GetByEmail(Email);
 
       if (!_findUser) return response(404, "Usuário não encontrado!", true);
 
       return response(200, _findUser, false);
     },
     async GetAll() {
-      const _findUser = await UserRepository.GetAll();
+      const _findUser = await Repository.GetAll();
       return response(200, _findUser);
     },
     async UpdatePassword(Id, Password, Checkup) {
-      const _findUser = await UserRepository.GetByIdAndPassword(Id);
+      const _findUser = await Repository.GetByIdAndPassword(Id);
 
       if (!_findUser) return response(404, "Usuário não encontrado!", true);
 
@@ -97,7 +97,7 @@ const Service = Repository => {
 
       if (_user.error) return response(400, _user.error.details, true);
 
-      const _userUpdated = await UserRepository.Update(
+      const _userUpdated = await Repository.Update(
         Id,
         Object.assign(_findUser, _user.value)
       );
@@ -105,7 +105,7 @@ const Service = Repository => {
       return response(200, _userUpdated);
     },
     async Delete(Id) {
-      const _findUser = await UserRepository.DeleteById(Id);
+      const _findUser = await Repository.DeleteById(Id);
       return response(200, _findUser);
     }
   };

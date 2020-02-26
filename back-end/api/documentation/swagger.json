@@ -238,7 +238,7 @@
           "type": "string"
         }
       ],
-      "put": {
+      "patch": {
         "tags": ["Users"],
         "summary": "Updating the user's password",
         "parameters": [
