@@ -21,7 +21,7 @@ const {
 } = require ("./constantes.js");
 
 
-// RouterPermissions(_private);
+RouterPermissions(_private);
 
 //BASE
 _public.get(`/`, (req, res, next) => {
