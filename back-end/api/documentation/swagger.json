@@ -19,7 +19,11 @@
   "tags": [
     {
       "name": "Users",
-      "description": "API for management users."
+      "description": "API test on DDD - managent User."
+    },
+    {
+      "name": "Schedule",
+      "description": "API test on DDD - management Schedule."
     }
   ],
   "schemes": ["http"],
@@ -32,7 +36,16 @@
         "summary": "Get all users in API",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Users with complete data",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserResponse"
+              }
+            }
+          },
+          "404": {
+            "description": "Users not found",
             "schema": {
               "type": "array",
               "items": {
@@ -67,19 +80,13 @@
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Incomplete or incorrect user creation data",
             "schema": {
               "$ref": "#/definitions/Error400"
             }
           },
-          "404": {
-            "description": "Not Found",
-            "schema": {
-              "$ref": "#/definitions/Error404"
-            }
-          },
           "422": {
-            "description": "Unprocessable Entity",
+            "description": "E-mail already registered",
             "schema": {
               "$ref": "#/definitions/Error422"
             }
@@ -114,7 +121,7 @@
             }
           },
           "404": {
-            "description": "Not Found",
+            "description": "User not found",
             "schema": {
               "$ref": "#/definitions/Error404"
             }
@@ -135,6 +142,12 @@
             "description": "User is deleted",
             "schema": {
               "$ref": "#/definitions/Deleted200"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error500"
             }
           }
         }
@@ -157,6 +170,18 @@
             "description": "User is updated",
             "schema": {
               "$ref": "#/definitions/Deleted200"
+            }
+          },
+          "400": {
+            "description": "Incomplete or incorrect user update data",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error500"
             }
           }
         }
@@ -182,8 +207,14 @@
               "$ref": "#/definitions/OK200"
             }
           },
+          "400": {
+            "description": "Incomplete or incorrect email",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
           "404": {
-            "description": "Not Found",
+            "description": "User not found",
             "schema": {
               "$ref": "#/definitions/Error404"
             }
@@ -227,8 +258,120 @@
               "$ref": "#/definitions/Update200"
             }
           },
+          "400": {
+            "description": "Incomplete password sent",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
           "404": {
-            "description": "Not Found",
+            "description": "User Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error404"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        },
+        "404": {
+          "description": "User not found",
+          "schema": {
+            "$ref": "#/definitions/Error404"
+          }
+        },
+        "500": {
+          "description": "Internal Server Error",
+          "schema": {
+            "$ref": "#/definitions/Error500"
+          }
+        }
+      }
+    },
+
+    "/schedule/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of user that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Schedule"],
+        "summary": "Get Schedules on Id",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ScheduleResponse"
+            }
+          },
+          "404": {
+            "description": "Schedule Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error404"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Delete schedule with given ID",
+        "tags": ["Schedule"],
+        "responses": {
+          "200": {
+            "description": "Schedule is deleted",
+            "schema": {
+              "$ref": "#/definitions/Deleted200"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update schedule with give ID",
+        "tags": ["Schedule"],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "Schedule that we want to updated",
+            "schema": {
+              "$ref": "#/definitions/Schedule"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Schedule is updated",
+            "schema": {
+              "$ref": "#/definitions/Deleted200"
+            }
+          },
+          "400": {
+            "description": "Data sent for update is incorrect or invalid",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "404": {
+            "description": "Schedule not found",
             "schema": {
               "$ref": "#/definitions/Error404"
             }
@@ -241,8 +384,80 @@
           }
         }
       }
+    },
+    "/schedule/user/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "ID of user that we want to find Schedules",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Schedule"],
+        "summary": "Get all Schedules on UserId",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ScheduleResponse"
+            }
+          },
+          "404": {
+            "description": "Schedules Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error404"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
+    },
+    "/schedule": {
+      "post": {
+        "summary": "Create new schedule",
+        "parameters": [
+          {
+            "name": "schedule",
+            "in": "body",
+            "description": "Schedule that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Schedule"
+            }
+          }
+        ],
+        "tags": ["Schedule"],
+        "responses": {
+          "201": {
+            "description": "Schedule is created",
+            "schema": {
+              "$ref": "#/definitions/CreatedSchedule201"
+            }
+          },
+          "400": {
+            "description": "Data sent for creation is incorrect or invalid",
+            "schema": {
+              "$ref": "#/definitions/Error400"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error500"
+            }
+          }
+        }
+      }
     }
   },
+
   "definitions": {
     "User": {
       "required": [
@@ -350,6 +565,101 @@
           "type": "boolean",
           "uniqueItems": true,
           "example": "true"
+        },
+        "createdAt": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time",
+          "exemple": "2020-02-25T23:19:24.054Z"
+        }
+      }
+    },
+    "Schedule": {
+      "properties": {
+        "description": {
+          "type": "string",
+          "uniqueItems": true,
+          "example": "Criando uma API"
+        },
+        "userId": {
+          "type": "string",
+          "uniqueItems": true,
+          "example": "5e5485c1a8759559c84bc473"
+        },
+        "entryTime": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time"
+        },
+        "exitTime": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time"
+        },
+        "visible": {
+          "type": "boolean",
+          "uniqueItems": true,
+          "example": "true"
+        },
+        "createdAt": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time",
+          "exemple": "2020-02-25T23:19:24.054Z"
+        }
+      }
+    },
+    "ScheduleResponse": {
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": "5e55abc194c3df110ca8d5c9"
+        },
+        "description": {
+          "type": "string",
+          "uniqueItems": true,
+          "example": "Criando uma API"
+        },
+        "userId": {
+          "type": "string",
+          "uniqueItems": true,
+          "example": "5e5485c1a8759559c84bc473"
+        },
+        "entryTime": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time"
+        },
+        "exitTime": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time"
+        },
+        "visible": {
+          "type": "boolean",
+          "uniqueItems": true,
+          "example": "true"
+        },
+        "createdAt": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "uniqueItems": true,
+          "format": "date-time",
+          "exemple": "2020-02-25T23:19:24.054Z"
         }
       }
     },
@@ -499,6 +809,22 @@
         "message": {
           "type": "object",
           "$ref": "#/definitions/UserResponse"
+        }
+      }
+    },
+    "CreatedSchedule201": {
+      "properties": {
+        "status": {
+          "type": "integer",
+          "example": 201
+        },
+        "error": {
+          "type": "boolean",
+          "example": false
+        },
+        "message": {
+          "type": "object",
+          "$ref": "#/definitions/ScheduleResponse"
         }
       }
     },

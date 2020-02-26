@@ -1,44 +1,44 @@
-const service = require("../../services/userServices");
+const service = require("../../services/userServices").Service;
 
 module.exports = {
-  async CreateUserController(req, res) {
+  async Post(req, res) {
     const body = req.body;
-    const response = await service.CreateUser(body);
+    const response = await service.Create(body);
     res.status(response.status).json(response);
   },
 
-  async UpdateUserController(req, res) {
+  async Patch(req, res) {
     const body = req.body;
     const id = req.params.id;
 
-    const response = await service.UpdateUser(id, body);
+    const response = await service.Update(id, body);
     res.status(response.status).json(response);
   },
 
-  async GetUserByIdController(req, res) {
+  async GetUserById(req, res) {
     const id = req.params.id;
-    const response = await service.GetUserById(id);
+    const response = await service.GetById(id);
     res.status(response.status).json(response);
   },
 
-  async GetUserByEmailController(req, res) {
+  async GetUserByEmail(req, res) {
     const email = req.params.email;
-    const response = await service.GetUserByEmail(email);
+    const response = await service.GetByEmail(email);
     res.status(response.status).json(response);
   },
 
-  async GetAllController(req, res) {
-    const response = await service.GetAllUsers();
+  async GetAll(req, res) {
+    const response = await service.GetAll();
     res.status(response.status).json(response);
   },
 
-  async DeleteUserByIdController(req, res) {
+  async DeleteUserById(req, res) {
     const id = req.params.id;
-    const response = await service.DeleteUserById(id);
+    const response = await service.Delete(id);
     res.status(response.status).json(response);
   },
 
-  async UpdatePasswordController(req, res) {
+  async PutPassword(req, res) {
     const id = req.params.id;
     const { password, checkPassword } = req.body;
     const response = await service.UpdatePassword(id, password, checkPassword);

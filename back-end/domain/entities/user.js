@@ -55,7 +55,7 @@ User.NewUserObject = (
   return validItem;
 };
 
-User.UpdateUser = UserToUpdate => {
+User.UpdateUserObject = UserToUpdate => {
   let validItem = User.validate(UserToUpdate);
 
   if (validItem.error) return validItem;

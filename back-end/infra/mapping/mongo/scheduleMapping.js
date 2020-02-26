@@ -18,6 +18,10 @@ const ScheduleSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
+  visible: {
+    type: Boolean,
+    required: true
+  },
   createdAt: {
     type: Date,
     required: true
