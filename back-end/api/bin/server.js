@@ -27,6 +27,7 @@ app.use(
   })
 );
 
+console.log(process.env.VERSION);
 app.use(logger("dev"));
 app.use(compression());
 app.use(helmet());
