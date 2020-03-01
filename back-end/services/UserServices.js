@@ -7,7 +7,7 @@ const isEmail = require("is-email");
 const Service = Repository => {
   return {
     async Create(Body) {
-      let _user = CreateUserSchema.New (
+      let _user = CreateUserSchema.New(
         Body.name,
         Body.email,
         Body.password,
@@ -70,7 +70,8 @@ const Service = Repository => {
     },
     async GetAll() {
       const _findUser = await Repository.GetAll();
-      if(_findUser.length) return response(404, "Usuários não encontrados", true);
+      if (!_findUser.length)
+        return response(404, "Usuários não encontrados", true);
       return response(200, _findUser);
     },
     async UpdatePassword(Id, Password, Checkup) {
@@ -78,15 +79,11 @@ const Service = Repository => {
 
       if (!_findUser) return response(404, "Usuário não encontrado!", true);
 
-
       let _user = UpdateUserSchema.UpdatePassword(validation);
 
       if (_user.error) return response(400, _user.error.details, true);
 
-      const _userUpdated = await Repository.Update(
-        Id,
-        _user.value
-      );
+      const _userUpdated = await Repository.Update(Id, _user.value);
 
       return response(200, _userUpdated);
     },

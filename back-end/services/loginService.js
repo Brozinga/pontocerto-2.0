@@ -18,7 +18,7 @@ const Service = Repository => {
       );
 
       if (!validatePasword)
-        return response(404, "Usuário ou senha incorretos!", true);
+        return response(403, "Usuário ou senha incorretos!", true);
 
       const token = JWT.GenerateToken(
         { id: user._id, role: user.acessType },

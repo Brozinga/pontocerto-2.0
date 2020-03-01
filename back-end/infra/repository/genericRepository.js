@@ -17,6 +17,10 @@ module.exports = Mappings => {
       });
       return _mapping;
     },
+    async GetWhere(where) {
+      let _mapping = await Mappings.find(where);
+      return _mapping;
+    },
     async Update(Id, Item) {
       let _mapping = await Mappings.update(
         { _id: mongoose.Types.ObjectId(Id), visible: true },

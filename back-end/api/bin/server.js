@@ -8,7 +8,7 @@ const express = require("express"),
   logger = require("morgan"),
   helmet = require("helmet"),
   swaggerUi = require("swagger-ui-express"),
-  swaggerDocument = require("../documentation/swagger.json"),
+  swaggerDocument = require("../documentation/swagger.js"),
   loggerFile = require("../../shared/WriteLogger"),
   requestIp = require("request-ip");
 
@@ -27,20 +27,20 @@ app.use(
   })
 );
 
-console.log(process.env.VERSION);
 app.use(logger("dev"));
 app.use(compression());
 app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.use(require("../routes").privates);
+app.use(require("../routes").publics);
+
 app.use(
   `${version}/api-docs`,
   swaggerUi.serve,
   swaggerUi.setup(swaggerDocument)
 );
-
-app.use(require("../routes").privates);
-app.use(require("../routes").publics);
 
 //ERROR HANDLER -- TRATAR TODOS OS ERROS DO AP
 app.use(async (err, req, res, next) => {

@@ -11,8 +11,7 @@ switch (configurations) {
     break;
   default:
     module.exports = require("dotenv").config({
-      path: path.resolve(__dirname, "development.env"),
-      debug: true
+      path: path.resolve(__dirname, "development.env")
     });
     break;
 }

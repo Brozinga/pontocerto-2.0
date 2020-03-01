@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const connectDb = mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex: true
 });
 connectDb.then(
   db => console.log("\x1b[36m%s\x1b[0m", "MONGO CONNECTED SUCCESSFULLY!"),
