@@ -12,13 +12,13 @@ module.exports = {
       name: {
         type: "string",
         uniqueItems: true,
-        example: "fernando brozinga"
+        example: "ADMIN"
       },
       email: {
         type: "string",
         uniqueItems: true,
         format: "email",
-        example: "email@email.com.br"
+        example: "admin@email.com"
       },
       password: {
         type: "string",
@@ -62,13 +62,13 @@ module.exports = {
       name: {
         type: "string",
         uniqueItems: true,
-        example: "fernando brozinga"
+        example: "ADMIN"
       },
       email: {
         type: "string",
         uniqueItems: true,
         format: "email",
-        example: "email@email.com.br"
+        example: "admin@email.com"
       },
       password: {
         type: "string",

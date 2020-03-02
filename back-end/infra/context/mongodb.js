@@ -11,3 +11,8 @@ connectDb.then(
 );
 
 module.exports.connectDb = connectDb;
+module.exports.openDb = mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true
+});

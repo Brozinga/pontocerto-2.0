@@ -14,7 +14,7 @@ module.exports = {
         properties: {
           name: {
             type: "string",
-            example: "FERNANDO BROZINGA"
+            example: "ADMIN"
           },
 
           token: {
@@ -46,11 +46,11 @@ module.exports = {
     properties: {
       email: {
         type: "string",
-        example: "email@email.com.br"
+        example: "admin@email.com"
       },
       password: {
         type: "string",
-        example: "123456"
+        example: "admin123"
       }
     }
   }
