@@ -7,16 +7,17 @@
         "type": "node",
         "request": "launch",
         "name": "Debuging API DDD",
-        "runtimeExecutable": "nodemon",
+        "runtimeExecutable": "${workspaceFolder}/node_modules/nodemon/bin/nodemon.js",
         "console": "integratedTerminal",
         "internalConsoleOptions": "neverOpen",
+        "runtimeArgs": ["--nolazy"],
         "skipFiles": [
             "<node_internals>/**"
         ],
         "restart": true,
         "program": "${workspaceFolder}/api/index.js",
         "env": {
-            "NODE_ENV": "development",
+            "NODE_ENV": "development"
         }
     }]
 }

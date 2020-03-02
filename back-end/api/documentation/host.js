@@ -36,7 +36,7 @@ module.exports = {
       description: "Routes exclusive admin role."
     }
   ],
-  schemes: ["http"],
+  schemes: ["https", "http"],
   consumes: ["application/json"],
   produces: ["application/json"]
 };

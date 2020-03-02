@@ -1,3 +1,0 @@
-{"message":"DATA: 24-02-2020 21:32:45 | STATUS: 500 | URL: /api/v1/user/link | METHOD: GET | IP: ::1 | CODIGO: 9124E190 | ERRO: CastError: Cast to ObjectId failed for value \"link\" at path \"_id\" for model \"User\"","level":"error"}
-{"message":"DATA: 24-02-2020 21:33:03 | STATUS: 500 | URL: /api/v1/user/link | METHOD: GET | IP: ::1 | CODIGO: F27732D6 | ERRO: CastError: Cast to ObjectId failed for value \"link\" at path \"_id\" for model \"User\"","level":"error"}
-{"message":"DATA: 24-02-2020 22:11:00 | STATUS: 500 | URL: /api/v1/user/5e5448b3fd9b553e4c9774f1 | METHOD: GET | IP: ::1 | CODIGO: A87C4165 | ERRO: TypeError: UserMapping.select is not a function","level":"error"}

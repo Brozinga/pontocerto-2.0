@@ -1,18 +1,17 @@
 "use strict";
 
+const clusterMode = require("../shared/Cluster");
+const serverHttp2 = require("./middlewares/Http2");
 const app = require("./bin/server");
 
-const server = require("http").Server(app);
-
-server.listen(process.env.PORT, () => {
-  console.log(
-    `\x1b[35mAPI RUNNING - PORT: \x1b[37m${
-      process.env.PORT
-    } \x1b[35mIN ENVIRONMENT: \x1b[37m${process.env.NODE_ENV.toLocaleUpperCase()}\x1b[0m`
-  );
-  //DRAW TEXT ASCII TO CONSOLE
-  console.log(
-    `
+const Runing = async () => {
+  serverHttp2(app, process.env.PORT, async () => {
+    console.log(
+      `\x1b[35mAPI RUNNING - PORT: \x1b[37m${process.env
+        .PORT} \x1b[35mIN ENVIRONMENT: \x1b[37m${process.env.NODE_ENV.toLocaleUpperCase()}\x1b[0m`
+    );
+    //DRAW TEXT ASCII TO CONSOLE
+    console.log(`
  █████╗ ██████╗ ██╗    ███╗   ██╗ ██████╗ ██████╗ ███████╗        ██╗███████╗    ██████╗ ██████╗ ██████╗ 
 ██╔══██╗██╔══██╗██║    ████╗  ██║██╔═══██╗██╔══██╗██╔════╝        ██║██╔════╝    ██╔══██╗██╔══██╗██╔══██╗
 ███████║██████╔╝██║    ██╔██╗ ██║██║   ██║██║  ██║█████╗          ██║███████╗    ██║  ██║██║  ██║██║  ██║
@@ -20,4 +19,7 @@ server.listen(process.env.PORT, () => {
 ██║  ██║██║     ██║    ██║ ╚████║╚██████╔╝██████╔╝███████╗██╗╚█████╔╝███████║    ██████╔╝██████╔╝██████╔╝
 ╚═╝  ╚═╝╚═╝     ╚═╝    ╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝ ╚════╝ ╚══════╝    ╚═════╝ ╚═════╝ ╚═════╝ 
 `);
-});
+  });
+};
+
+clusterMode(Runing, process.env.CLUSTER_SIZE, process.env.CLUSTER_MODE);

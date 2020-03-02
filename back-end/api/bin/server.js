@@ -5,7 +5,7 @@ require("../../infra/context/mongodb");
 const express = require("express"),
   cors = require("cors"),
   compression = require("compression"),
-  logger = require("morgan"),
+  logger = require("../middlewares/MorganLog"),
   helmet = require("helmet"),
   swaggerUi = require("swagger-ui-express"),
   swaggerDocument = require("../documentation/swagger.js"),
@@ -15,6 +15,7 @@ const express = require("express"),
 require("express-async-errors");
 
 const version = process.env.VERSION;
+
 const app = express();
 
 app.use(require("express-status-monitor")());
@@ -27,12 +28,11 @@ app.use(
   })
 );
 
-app.use(logger("dev"));
 app.use(compression());
 app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
+logger(app, process.env.MORGAN_LOG);
 app.use(require("../routes").privates);
 app.use(require("../routes").publics);
 

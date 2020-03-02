@@ -15,7 +15,6 @@ module.exports.logErrors = (error, statusCode = null, informations = null) => {
   let _statusCode = statusCode ? statusCode : 500;
   let errorCode = uuid().toUpperCase().substring(0, 8);
 
-  console.log(typeof error);
   let dataAgora = moment.utc().format("DD-MM-YYYY HH:mm:ss");
 
   let erroEntrada = error.toString();

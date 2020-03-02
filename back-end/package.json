@@ -5,7 +5,7 @@
   "main": "./api/index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node api/index.js",
-    "dev": "cross-env NODE_ENV=development nodemon api/index.js",
+    "dev": "cross-env NODE_ENV=development ./node_modules/nodemon/bin/nodemon.js api/index.js  --config ./api/nodemon.json",
     "seed": "node ./infra/seed/mongodb/index.js"
   },
   "keywords": [],
@@ -17,7 +17,8 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^2.0.2"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.0",
@@ -28,6 +29,7 @@
     "cors": "^2.8.5",
     "cross-env": "^7.0.0",
     "dotenv": "^8.2.0",
+    "dotenv-parse-variables": "^0.2.3",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "express-status-monitor": "^1.2.8",
@@ -38,8 +40,8 @@
     "mongoose": "^5.9.1",
     "mongoose-unique-validator": "^2.0.3",
     "morgan": "^1.9.1",
-    "nodejs-dashboard": "^0.5.1",
     "request-ip": "^2.1.3",
+    "spdy": "^4.0.1",
     "swagger-ui-express": "^4.1.3",
     "uuid": "^3.4.0",
     "winston": "^3.2.1"

@@ -4,6 +4,29 @@
 
 Sistema produzido com uma API Node.js, MongoDB como banco de dados, REACT JS no Front e REACT NATIVE no Mobile.
 
+### API NodeJS
+
+A API foi feita, em NodeJS, com Driving Domain Design (DDD) e os principios de SOLID.
+Conta com as seguintes Features:
+    - Depuração de código com refresh automático após atualização (visual studio code).
+    - ESLint Standard para manter o padrão da escrita do código.
+    - CrossEnv para carregamento das variáveis de Ambiente independente do SO usado.
+    - Envirement para Desenvolvimento e Produção.
+    - Dominio fabricado com a biblioteca JOI, para ser independente do Banco de dados usados.
+    - Log de Erros em arquivos .LOG usando a biblioteca WinstonJS para erros não tratados.
+    - API criada com o Framework EpressJS com CommonJS.
+    - Autenticação por Json Web Token (JWT).
+    - Sistema de Permissionamento "ADMIN", "USUARIO" para acesso a cada rota da API.
+    - Express-Status para acompanhamento em tempo real de consumo de CPU, RAM, requisições etc.
+    - Documentação interativa com Swagger.
+    - Modulo Cluster nativo (multithreading).
+    - Melhorias de performance como compressão de dados, todos os processos assíncronos, sem logs de console em produção.
+    - Protocolo HTTP2.
+
+   DESENVOLVIMENTO:
+        Para usar a API em desenvolvimento é necessário ter o node 10.16.0 ou maior.
+        O Modo Cluster não funciona no Depurador do VISUAL STUDIO CODE.
+
 ### CheckList
 
 - Criar a estrutura do Banco de Dados (Tabelas, relacionamentos).
