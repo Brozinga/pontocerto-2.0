@@ -4,20 +4,39 @@
     // Para obter mais informações, visite: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [{
-        "type": "node",
-        "request": "launch",
-        "name": "Debuging API DDD",
-        "runtimeExecutable": "${workspaceFolder}/node_modules/nodemon/bin/nodemon.js",
-        "console": "integratedTerminal",
-        "internalConsoleOptions": "neverOpen",
-        "runtimeArgs": ["--nolazy"],
-        "skipFiles": [
-            "<node_internals>/**"
-        ],
-        "restart": true,
-        "program": "${workspaceFolder}/api/index.js",
-        "env": {
-            "NODE_ENV": "development"
+            "type": "node",
+            "request": "launch",
+            "name": "Debuging API DDD",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/nodemon/bin/nodemon.js",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "runtimeArgs": ["--nolazy"],
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "restart": true,
+            "program": "${workspaceFolder}/api/index.js",
+            "env": {
+                "NODE_ENV": "development"
+            }
+        },
+        {
+            "name": "Debug Tests",
+            "type": "node",
+            "request": "launch",
+            "runtimeArgs": [
+                "--inspect-brk",
+                "${workspaceFolder}/node_modules/jest/bin/jest.js",
+                "--watchAll",
+                "--coverage",
+                "--runInBand"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "port": 9229
         }
-    }]
+    ]
 }

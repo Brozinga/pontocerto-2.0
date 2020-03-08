@@ -1,6 +1,6 @@
 "use strict";
 
-require("../env");
+require("../../environment");
 require("../../infra/context/mongodb");
 const express = require("express"),
   cors = require("cors"),

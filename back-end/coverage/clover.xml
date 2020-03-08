@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1583645662152" clover="3.2.0">
+  <project timestamp="1583645662152" name="All files">
+    <metrics statements="98" coveredstatements="60" conditionals="23" coveredconditionals="10" methods="21" coveredmethods="9" elements="142" coveredelements="79" complexity="0" loc="98" ncloc="98" packages="9" files="10" classes="10"/>
+    <package name="domain.entities">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="login.js" path="C:\APRENDENDO\ponto-certo-2.0\back-end\domain\entities\login.js">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.enums">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="eAcessTypes.js" path="C:\APRENDENDO\ponto-certo-2.0\back-end\domain\enums\eAcessTypes.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.httpResponses">
+      <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+      <file name="BasicResponse.js" path="C:\APRENDENDO\ponto-certo-2.0\back-end\domain\httpResponses\BasicResponse.js">
+        <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="environment">
+      <metrics statements="14" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="C:\APRENDENDO\ponto-certo-2.0\back-end\environment\index.js">
+        <metrics statements="14" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="infra.mapping.mongo">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="user.mapping.js" path="C:\APRENDENDO\ponto-certo-2.0\back-end\infra\mapping\mongo\user.mapping.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="infra.repository">
+      <metrics statements="24" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="1"/>
+      <file name="generic.repository.js" path="C:\APRENDENDO\ponto-certo-2.0\back-end\infra\repository\generic.repository.js">
+        <metrics statements="15" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+      </file>
+      <file name="user.repository.js" path="C:\APRENDENDO\ponto-certo-2.0\back-end\infra\repository\user.repository.js">
+        <metrics statements="9" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="services">
+      <metrics statements="16" coveredstatements="16" conditionals="6" coveredconditionals="5" methods="2" coveredmethods="2"/>
+      <file name="login.service.js" path="C:\APRENDENDO\ponto-certo-2.0\back-end\services\login.service.js">
+        <metrics statements="16" coveredstatements="16" conditionals="6" coveredconditionals="5" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="20" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="shared.JWT">
+      <metrics statements="19" coveredstatements="7" conditionals="10" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="index.js" path="C:\APRENDENDO\ponto-certo-2.0\back-end\shared\JWT\index.js">
+        <metrics statements="19" coveredstatements="7" conditionals="10" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="shared.PasswordHash">
+      <metrics statements="6" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="2"/>
+      <file name="index.js" path="C:\APRENDENDO\ponto-certo-2.0\back-end\shared\PasswordHash\index.js">
+        <metrics statements="6" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="4" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

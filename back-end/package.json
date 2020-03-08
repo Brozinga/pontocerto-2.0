@@ -6,7 +6,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node api/index.js",
     "dev": "cross-env NODE_ENV=development ./node_modules/nodemon/bin/nodemon.js api/index.js  --config ./api/nodemon.json",
-    "seed": "node ./infra/seed/mongodb/index.js"
+    "seed": "node ./infra/seed/mongodb/index.js",
+    "test": "cross-env NODE_ENV=development ./node_modules/jest/bin/jest.js --watchAll --coverage"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^25.1.0",
+    "jest-cli": "^25.1.0",
+    "jest-extended": "^0.11.5",
     "nodemon": "^2.0.2"
   },
   "dependencies": {
