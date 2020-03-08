@@ -1,6 +1,6 @@
 const Login = require("../domain/entities/login");
 const response = require("../domain/httpResponses/BasicResponse");
-const UserRepository = require("../infra/repository/userRepository");
+const UserRepository = require("../infra/repository/user.repository");
 const JWT = require("../shared/JWT");
 const Service = Repository => {
   return {
@@ -32,6 +32,6 @@ const Service = Repository => {
 };
 
 module.exports = {
-  ServiceTest: Service,
-  Service: Service(UserRepository)
+  service: Service,
+  load: Service(UserRepository)
 };

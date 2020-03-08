@@ -1,7 +1,7 @@
 const response = require("../domain/httpResponses/BasicResponse");
 const CreateUserSchema = require("../domain/entities/user").CreateUserSchema;
 const UpdateUserSchema = require("../domain/entities/user").UpdateUserSchema;
-const UserRepository = require("../infra/repository/userRepository");
+const UserRepository = require("../infra/repository/user.repository");
 const isEmail = require("is-email");
 
 const Service = Repository => {
@@ -95,6 +95,6 @@ const Service = Repository => {
 };
 
 module.exports = {
-  ServiceTest: Service,
-  Service: Service(UserRepository)
+  service: Service,
+  load: Service(UserRepository)
 };

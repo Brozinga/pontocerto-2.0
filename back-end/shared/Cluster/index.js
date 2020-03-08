@@ -7,7 +7,7 @@ module.exports = (callback, NumberOfCPUs = 0, enable = false) => {
 
   if (enable) {
     if (cluster.isMaster) {
-      for (var i = 0; i < CPUs; i += 1) {
+      for (let i = 0; i < CPUs; i += 1) {
         cluster.fork();
       }
     } else {

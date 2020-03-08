@@ -6,23 +6,9 @@ const EAcessType = require("../enums/eAcessTypes.js");
 
 const CreateUserSchema = model
   .object({
-    _id: model.string(),
-    name: model
-      .string()
-      .min(3)
-      .uppercase()
-      .trim()
-      .required(),
-    email: model
-      .string()
-      .email()
-      .lowercase()
-      .trim()
-      .required(),
-    password: model
-      .string()
-      .min(6)
-      .required(),
+    name: model.string().min(3).uppercase().trim().required(),
+    email: model.string().email().lowercase().trim().required(),
+    password: model.string().min(6).required(),
     checkPassword: model.ref("password"),
     isActive: model.bool().default(true),
     visible: model.bool().default(true),
@@ -40,16 +26,8 @@ const CreateUserSchema = model
 const UpdateUserSchema = model
   .object({
     _id: model.string(),
-    name: model
-      .string()
-      .min(3)
-      .uppercase()
-      .trim(),
-    email: model
-      .string()
-      .email()
-      .lowercase()
-      .trim(),
+    name: model.string().min(3).uppercase().trim(),
+    email: model.string().email().lowercase().trim(),
     password: model.string().min(6),
     checkPassword: model.ref("password"),
     isActive: model.bool(),

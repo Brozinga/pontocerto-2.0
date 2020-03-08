@@ -1,4 +1,4 @@
-const service = require("../../services/userServices").Service;
+const service = require("../../services/user.service").load;
 
 module.exports = {
   async Post(req, res) {

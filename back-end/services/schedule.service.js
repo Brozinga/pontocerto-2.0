@@ -1,4 +1,4 @@
-const ScheduleRepository = require("../infra/repository/scheduleRepository");
+const ScheduleRepository = require("../infra/repository/schedule.repository");
 const response = require("../domain/httpResponses/BasicResponse");
 const Schedule = require("../domain/entities/schedule");
 const Service = Repository => {
@@ -50,7 +50,8 @@ const Service = Repository => {
     async GetByUserId(UserId) {
       let _schedule = await Repository.GetAllByUserId(UserId);
 
-      if (!_schedule) return response(404, "Tarefas não encontradas!", true);
+      if (!_schedule.length)
+        return response(404, "Tarefas não encontradas!", true);
 
       return response(200, _schedule, false);
     },
@@ -62,6 +63,6 @@ const Service = Repository => {
 };
 
 module.exports = {
-  ServiceTest: Service,
-  Service: Service(ScheduleRepository)
+  service: Service,
+  load: Service(ScheduleRepository)
 };

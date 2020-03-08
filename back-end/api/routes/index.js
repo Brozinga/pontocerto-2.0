@@ -1,8 +1,8 @@
-const UserController = require("../controllers/userController");
-const ScheduleController = require("../controllers/scheduleController");
-const LoginController = require("../controllers/loginController");
+const UserController = require("../controllers/user.controller");
+const ScheduleController = require("../controllers/schedule.controller");
+const LoginController = require("../controllers/login.controller");
 const express = require("express");
-const RouterPermissions = require('./permissions');
+const RouterPermissions = require("./permissions");
 const _private = express.Router();
 const _public = express.Router();
 const version = process.env.VERSION;
@@ -18,21 +18,16 @@ const {
   SCHEDULE_URL_ID,
   SCHEDULE_WITH_USER,
   LOGIN_URL
-} = require ("./constantes.js");
-
+} = require("./constantes.js");
 
 RouterPermissions(_private);
 
 //BASE
 _public.get(`/`, (req, res, next) => {
-  
   process.env.NODE_ENV === "development"
-    ?  res.redirect(`${version}/api-docs`)
-    :  res.json({ status: 200, error: false, message: "API is Running!" });
+    ? res.redirect(`${version}/api-docs`)
+    : res.json({ status: 200, error: false, message: "API is Running!" });
 });
-
-
-
 
 _private
   .get(USERS_URL, UserController.GetAll)

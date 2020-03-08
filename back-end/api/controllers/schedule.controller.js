@@ -1,4 +1,4 @@
-const service = require("../../services/scheduleService").Service;
+const service = require("../../services/schedule.service").load;
 
 module.exports = {
   async Post(req, res) {
@@ -24,7 +24,7 @@ module.exports = {
     res.status(response.status).json(response);
   },
   async Delete(req, res) {
-    var id = req.params.id;
+    let id = req.params.id;
     const response = await service.Delete(id);
     res.status(response.status).json(response);
   }

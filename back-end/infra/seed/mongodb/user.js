@@ -1,4 +1,4 @@
-const userService = require("../../../services/UserServices").Service;
+const userService = require("../../../services/user.service").load;
 const acessType = require("../../../domain/enums/eAcessTypes");
 
 module.exports = async () => {

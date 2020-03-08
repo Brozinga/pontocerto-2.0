@@ -1,5 +1,5 @@
-const UserMapping = require("../mapping/mongo/userMapping");
-const genericRepository = require("../repository/genericRepository")(
+const UserMapping = require("../mapping/mongo/user.mapping");
+const genericRepository = require("../repository/generic.repository")(
   UserMapping
 );
 

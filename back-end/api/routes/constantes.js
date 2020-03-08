@@ -8,7 +8,7 @@ module.exports = {
   USERS_URL: `${version}/users`,
 
   SCHEDULE_URL: `${version}/schedule`,
-  SCHEDULE_URL_ID: `${version}/schedule`,
+  SCHEDULE_URL_ID: `${version}/schedule/:id`,
   SCHEDULE_WITH_USER: `${version}/schedule/user/:userId`,
   LOGIN_URL: `${version}/login`
 };

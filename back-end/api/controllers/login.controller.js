@@ -1,4 +1,4 @@
-const service = require("../../services/loginService").Service;
+const service = require("../../services/login.service").load;
 
 module.exports = {
   async Post(req, res) {
