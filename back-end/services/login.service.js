@@ -10,7 +10,8 @@ const Service = Repository => {
 
       const user = await Repository.GetByEmailAddPassword(valid.value.email);
 
-      if (!user) return response(404, "Usuário não encontrado!", true);
+      if (!user || !Object.keys(user).length)
+        return response(404, "Usuário não encontrado!", true);
 
       let validatePasword = Login.ValidatePassword(
         valid.value.password,
@@ -26,7 +27,7 @@ const Service = Repository => {
         process.env.JWT_TIME
       );
 
-      return response(200, { token, name: user.name });
+      return response(200, { token, type: "bearer", name: user.name });
     }
   };
 };

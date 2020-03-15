@@ -30,9 +30,14 @@ const Service = Repository => {
       return response(201, userInserted);
     },
     async Update(Id, Body) {
+
+      let _user = UpdateUserSchema.validate(Body);
+
+      if (_user.error) return response(400, _user.error.details, true);
+
       let _findUser = await Repository.GetByIdAndPassword(Id);
 
-      if (!_findUser) return response(404, "Usuário não encontrado!", true);
+      if (!_findUser || !Object.keys(_findUser).length) return response(404, "Usuário não encontrado!", true);
 
       if (Body.email) {
         let verifyEmailUserExists = await Repository.GetByEmail(Body.email);
@@ -40,10 +45,6 @@ const Service = Repository => {
         if (verifyEmailUserExists)
           return response(422, "Este email já está cadastrado!", true);
       }
-
-      let _user = UpdateUserSchema.validate(Body);
-
-      if (_user.error) return response(400, _user.error.details, true);
 
       const _userUpdated = await Repository.Update(
         Id,
@@ -55,7 +56,7 @@ const Service = Repository => {
     async GetById(Id) {
       const _findUser = await Repository.GetById(Id);
 
-      if (!_findUser) return response(404, "Usuário não encontrado!", true);
+      if (!_findUser || !Object.keys(_findUser).length) return response(404, "Usuário não encontrado!", true);
 
       return response(200, _findUser, false);
     },
@@ -79,7 +80,10 @@ const Service = Repository => {
 
       if (!_findUser) return response(404, "Usuário não encontrado!", true);
 
-      let _user = UpdateUserSchema.UpdatePassword(validation);
+      let _user = UpdateUserSchema.UpdatePassword({
+        password: Password,
+        checkPassword: Checkup
+      });
 
       if (_user.error) return response(400, _user.error.details, true);
 
