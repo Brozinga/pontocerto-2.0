@@ -5,7 +5,7 @@ const model = require("@hapi/joi");
 const Schedule = model
   .object({
     _id: model.string(),
-    description: model.string().min(3).max(30).uppercase().trim().required(),
+    description: model.string().min(3).uppercase().trim().required(),
     userId: model.string().required(),
     entryTime: model.date().required(),
     exitTime: model.date().required(),

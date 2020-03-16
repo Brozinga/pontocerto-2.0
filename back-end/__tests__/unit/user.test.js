@@ -21,6 +21,31 @@ describe("User Service - Ok", () => {
         expect(response.error).toBe(false);
         expect(response.message.name).toBe("ADMIN");
     });
+    it("Get by email", async () => {
+        const response = await userService
+            .service({
+                ...correct,
+                async GetByEmail(email) {
+                    return {
+                        "_id": "5e6e63e77857a23ec4192779",
+                        "name": "TESTE",
+                        "email": "testando@email.com",
+                        "entryTime": "2020-03-15T14:09:00.311-03:00",
+                        "exitTime": "2020-03-15T14:09:00.311-03:00",
+                        "acessType": "user",
+                        "isActive": true,
+                        "visible": true,
+                        "createdAt": "2020-03-15T14:19:34.357-03:00",
+                        "__v": 0,
+                        "updatedAt": "2020-03-15T14:19:34.386-03:00"
+                    }
+                }
+            }).GetByEmail("testando@email.com")
+
+        expect(response.status).toBe(200);
+        expect(response.error).toBe(false);
+        expect(response.message.name).toBe("TESTE");
+    });
 
     it("Create one user", async () => {
         const response = await userService
@@ -115,28 +140,85 @@ describe("User Service - Fail", () => {
 
         expect(response.status).toBe(422);
         expect(response.error).toBe(true);
-    })
-
+    });
     it("User not found to Update", async () => {
 
         const response = await userService
-            .service(fail).Update( "5e6e63e77857a23ec4192779",{
+            .service({
+                ...fail,
+                async GetByIdAndPassword(Id) {
+                    return {};
+                }
+            }).Update("5e6e63e77857a23ec4192779", {
                 "name": "TESTE"
-            })
+            });
 
         expect(response.status).toBe(404);
         expect(response.error).toBe(true);
-    })
+    });
 
     it("User update data incorrect", async () => {
 
         const response = await userService
-            .service(fail).Update( "5e6e63e77857a23ec4192779",{
+            .service(fail).Update("5e6e63e77857a23ec4192779", {
                 "email": "testandoemail.com"
             })
 
         expect(response.status).toBe(400);
         expect(response.error).toBe(true);
-    })
+    });
+    it("User update password, user not Found", async () => {
+
+        const response = await userService
+            .service({ ...fail, async GetByIdAndPassword(Id) { return null } })
+            .UpdatePassword("5e6e63e77857a23ec4192779", "string", "string")
+
+        expect(response.status).toBe(404);
+        expect(response.error).toBe(true);
+    });
+
+     it("User update password, password not match", async () => {
+
+        const response = await userService
+            .service(fail)
+            .UpdatePassword("5e6e63e77857a23ec4192779", "strings", "string")
+
+        expect(response.status).toBe(400);
+        expect(response.error).toBe(true);
+    });
+
+    it("User update email exists", async () => {
+
+        const response = await userService
+            .service(fail).Update("5e6e63e77857a23ec4192779", {
+                "email": "testando@email.com"
+            })
+
+        expect(response.status).toBe(422);
+        expect(response.error).toBe(true);
+    });
+
+    it("Get by email, email is incorrect", async () => {
+
+        const response = await userService
+            .service(fail).GetByEmail("5e6e63e77857a23ec4192779", {
+                "email": "testandoemail.com"
+            })
+
+        expect(response.status).toBe(400);
+        expect(response.error).toBe(true);
+    });
+    it("Get by email, user not found", async () => {
+
+        const response = await userService
+            .service({
+                async GetByEmail(email) {
+                    return {}
+                }
+            }).GetByEmail("testando@email.com")
+
+        expect(response.status).toBe(404);
+        expect(response.error).toBe(true);
+    });
 
 });

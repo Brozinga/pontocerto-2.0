@@ -65,7 +65,7 @@ const Service = Repository => {
 
       const _findUser = await Repository.GetByEmail(Email);
 
-      if (!_findUser) return response(404, "Usuário não encontrado!", true);
+      if (!_findUser || !Object.keys(_findUser).length) return response(404, "Usuário não encontrado!", true);
 
       return response(200, _findUser, false);
     },
@@ -78,7 +78,7 @@ const Service = Repository => {
     async UpdatePassword(Id, Password, Checkup) {
       const _findUser = await Repository.GetByIdAndPassword(Id);
 
-      if (!_findUser) return response(404, "Usuário não encontrado!", true);
+      if (!_findUser || !Object.keys(_findUser).length) return response(404, "Usuário não encontrado!", true);
 
       let _user = UpdateUserSchema.UpdatePassword({
         password: Password,

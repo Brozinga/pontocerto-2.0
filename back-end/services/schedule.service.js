@@ -20,9 +20,9 @@ const Service = Repository => {
     async Update(Id, Body) {
       let _findSchedule = await Repository.GetById(Id);
 
-      if (!_findSchedule) return response(404, "Tarefa não encontrada!", true);
+      if (!_findSchedule || !Object.keys(_findSchedule).length) return response(404, "Tarefa não encontrada!", true);
 
-      let scheduleToUpdated = Object.assign(_findSchedule._doc, Body);
+      let scheduleToUpdated = Object.assign(_findSchedule, Body);
 
       let validation = { ...scheduleToUpdated };
       validation.userId = validation.userId.toString();
@@ -43,7 +43,7 @@ const Service = Repository => {
     async GetById(Id) {
       const _findSchedule = await Repository.GetById(Id);
 
-      if (!_findSchedule) return response(404, "Tarefa não encontrada!", true);
+      if (!_findSchedule || !Object.keys(_findSchedule).length) return response(404, "Tarefa não encontrada!", true);
 
       return response(200, _findSchedule, false);
     },
