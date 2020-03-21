@@ -1,6 +1,7 @@
-const correct = require('../__mocks__/Schedule/correct.repository');
-const fail = require('../__mocks__/Schedule/fail.repository');
-const scheduleService = require('../../services/schedule.service');
+require("../../../environment");
+const correct = require('../../__mocks__/Schedule/correct.repository');
+const fail = require('../../__mocks__/Schedule/fail.repository');
+const scheduleService = require('../../../services/schedule.service');
 
 describe("Schedule Service - Ok", () => {
 

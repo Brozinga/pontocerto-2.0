@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35% </span>
+                <span class="strong">95% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/20</span>
+                <span class='fraction'>19/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36.84% </span>
+                <span class="strong">94.74% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/19</span>
+                <span class='fraction'>18/19</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -92,38 +92,40 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,29 +133,30 @@
 const jwt = require("jsonwebtoken");
 const response = require("../../domain/httpResponses/BasicResponse");
 &nbsp;
-const ValidateToken = <span class="fstat-no" title="function not covered" >as</span>ync (Token, Secret) =&gt; {
-<span class="cstat-no" title="statement not covered" >  if (!Token) <span class="cstat-no" title="statement not covered" >return response(401, "O Token é inválido.", true);</span></span>
+const ValidateToken = async (Token, Secret) =&gt; {
+  if (!Token) return response(401, "O Token é inválido.", true);
+  
+  let token = Token.trim().split(/[\s\t]/g);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (!Token.startsWith("bearer") &amp;&amp; !Token.startsWith("Bearer"))</span>
-<span class="cstat-no" title="statement not covered" >    return response(401, "O Token é inválido.", true);</span>
+  if (token[0].toLocaleLowerCase() !== "bearer")
+    return response(401, "O Token é inválido.", true);
 &nbsp;
-  let token = <span class="cstat-no" title="statement not covered" >Token.slice(7, Token.length).trim();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  try {</span>
-    let decoded = <span class="cstat-no" title="statement not covered" >await jwt.verify(token, Secret);</span>
-<span class="cstat-no" title="statement not covered" >    return response(200, decoded, false);</span>
+  try {
+    let decoded = await jwt.verify(token[1], Secret);
+    return response(200, decoded, false);
   } catch (err) {
-<span class="cstat-no" title="statement not covered" >    if (err.name === "TokenExpiredError")</span>
-<span class="cstat-no" title="statement not covered" >      return response(403, "A Sessão foi expirada.", true);</span>
-<span class="cstat-no" title="statement not covered" >    if (err.name === "JsonWebTokenError")</span>
-<span class="cstat-no" title="statement not covered" >      return response(401, "O formato do token é inválido.", true);</span>
+    if (err.name === "TokenExpiredError")
+      return response(403, "A Sessão foi expirada.", true);
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (err.name === "JsonWebTokenError")
+      return response(401, "O formato do token é inválido.", true);
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return response(500, "Falha ao autenticar", true);</span>
   }
 };
 &nbsp;
-const GenerateToken = (Items, Secret, Time) =&gt; {
-  let token = jwt.sign({ ...Items }, Secret, { expiresIn: Time });
+const GenerateToken = async (Items, Secret, Time) =&gt; {
+  let token = await jwt.sign({ ...Items }, Secret, { expiresIn: Time });
 &nbsp;
   return token;
 };
@@ -169,7 +172,7 @@ module.exports = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Mon Mar 16 2020 01:54:58 GMT-0300 (GMT-03:00)
+                at Sat Mar 21 2020 01:51:54 GMT-0300 (GMT-03:00)
             </div>
         </div>
         <script src="../../prettify.js"></script>

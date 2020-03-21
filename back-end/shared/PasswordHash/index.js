@@ -6,9 +6,5 @@ module.exports = (saltRounds = 10) => ({
   },
   comparePasswordHash: (password, hash) => {
     return bcrypt.compareSync(password, hash);
-  },
-  passwordCompare: (password, confirmation) => {
-    let bc = bcrypt.hashSync(password, confirmation);
-    return bcrypt.compareSync(bc, confirmation);
   }
 });

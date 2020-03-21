@@ -1,7 +1,7 @@
-let fail = require("../__mocks__/User/fail.repository");
-let correct = require("../__mocks__/User/correct.repository");
-let login = require("../../services/login.service");
-require("../../environment");
+require("../../../environment");
+let fail = require("../../__mocks__/User/fail.repository");
+let correct = require("../../__mocks__/User/correct.repository");
+let login = require("../../../services/login.service");
 
 describe("Login - OK", () => {
   it("generate and return JWT and Status Code = 200", async () => {

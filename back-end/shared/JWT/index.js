@@ -4,14 +4,15 @@ const response = require("../../domain/httpResponses/BasicResponse");
 
 const ValidateToken = async (Token, Secret) => {
   if (!Token) return response(401, "O Token é inválido.", true);
+  
+  let token = Token.trim().split(/[\s\t]/g);
 
-  if (!Token.startsWith("bearer") && !Token.startsWith("Bearer"))
+  if (token[0].toLocaleLowerCase() !== "bearer")
     return response(401, "O Token é inválido.", true);
 
-  let token = Token.slice(7, Token.length).trim();
 
   try {
-    let decoded = await jwt.verify(token, Secret);
+    let decoded = await jwt.verify(token[1], Secret);
     return response(200, decoded, false);
   } catch (err) {
     if (err.name === "TokenExpiredError")
@@ -23,8 +24,8 @@ const ValidateToken = async (Token, Secret) => {
   }
 };
 
-const GenerateToken = (Items, Secret, Time) => {
-  let token = jwt.sign({ ...Items }, Secret, { expiresIn: Time });
+const GenerateToken = async (Items, Secret, Time) => {
+  let token = await jwt.sign({ ...Items }, Secret, { expiresIn: Time });
 
   return token;
 };

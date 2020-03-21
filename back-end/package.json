@@ -13,8 +13,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "swagger-ui-express": "^4.1.3",
+    "axios": "^0.19.2",
     "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
@@ -25,9 +27,8 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
-    "@hapi/joi": "^17.1.0",
+    "@hapi/joi": "^17.1.1",
     "app-root-path": "^3.0.0",
-    "base64-min": "^2.0.0",
     "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
@@ -44,14 +45,11 @@
     "lz-string": "^1.4.4",
     "lzutf8": "^0.5.5",
     "moment": "^2.24.0",
-    "mongoose": "^5.9.3",
+    "mongoose": "^5.9.5",
     "mongoose-unique-validator": "^2.0.3",
-    "morgan": "^1.9.1",
-    "qrcode": "^1.4.4",
-    "qrcode-generator": "^1.4.4",
+    "morgan": "^1.10.0",
     "request-ip": "^2.1.3",
     "spdy": "^4.0.1",
-    "swagger-ui-express": "^4.1.3",
     "uuid": "^3.4.0",
     "winston": "^3.2.1"
   }

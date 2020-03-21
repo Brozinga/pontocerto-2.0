@@ -31,7 +31,7 @@ const Service = Repository => {
     },
     async Update(Id, Body) {
 
-      let _user = UpdateUserSchema.validate(Body);
+      let _user = UpdateUserSchema.UpdateUserObject(Body);
 
       if (_user.error) return response(400, _user.error.details, true);
 
