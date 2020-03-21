@@ -33,8 +33,7 @@ app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 logger(app, process.env.MORGAN_LOG);
-app.use(require("../routes").privates);
-app.use(require("../routes").publics);
+app.use(require("../routes"));
 
 app.use(
   `${version}/api-docs`,
