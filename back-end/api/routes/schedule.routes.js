@@ -5,10 +5,11 @@ const {
     SCHEDULE_URL,
     SCHEDULE_URL_ID,
     SCHEDULE_WITH_USER
-} = require("./urls");
+} = require("./constants");
 
 module.exports = (router) => {
 
+  //PERMISSIONS
 router.post([SCHEDULE_URL_ID], Permit("admin"));
 router.get([SCHEDULE_URL_ID, SCHEDULE_WITH_USER], Permit("admin", "user"));
 router.post([SCHEDULE_URL], Permit("admin", "user"));

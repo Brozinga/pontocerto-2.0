@@ -29,6 +29,8 @@ const Service = Repository => {
 
       return response(201, userInserted);
     },
+
+
     async Update(Id, Body) {
 
       let _user = UpdateUserSchema.UpdateUserObject(Body);
@@ -53,6 +55,8 @@ const Service = Repository => {
 
       return response(200, _userUpdated, false);
     },
+
+
     async GetById(Id) {
       const _findUser = await Repository.GetById(Id);
 
@@ -60,6 +64,8 @@ const Service = Repository => {
 
       return response(200, _findUser, false);
     },
+
+
     async GetByEmail(Email) {
       if (!isEmail(Email)) return response(400, "Email incorreto!", true);
 
@@ -69,12 +75,16 @@ const Service = Repository => {
 
       return response(200, _findUser, false);
     },
+
+
     async GetAll() {
       const _findUser = await Repository.GetAll();
       if (!_findUser.length)
         return response(404, "Usuários não encontrados", true);
       return response(200, _findUser);
     },
+
+
     async UpdatePassword(Id, Password, Checkup) {
       const _findUser = await Repository.GetByIdAndPassword(Id);
 
@@ -91,6 +101,8 @@ const Service = Repository => {
 
       return response(200, _userUpdated);
     },
+
+    
     async Delete(Id) {
       const _findUser = await Repository.DeleteById(Id);
       return response(200, _findUser);

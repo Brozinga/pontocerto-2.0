@@ -7,7 +7,7 @@ const {
     USER_WITH_EMAIL,
     USER_WITH_PASSWORD,
     USERS_URL
-  } = require("./urls");
+  } = require("./constants");
 
   module.exports = (router) => {
 

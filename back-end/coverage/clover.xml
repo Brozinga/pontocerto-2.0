@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584766314377" clover="3.2.0">
-  <project timestamp="1584766314377" name="All files">
+<coverage generated="1585425899068" clover="3.2.0">
+  <project timestamp="1585425899068" name="All files">
     <metrics statements="162" coveredstatements="161" conditionals="75" coveredconditionals="72" methods="29" coveredmethods="29" elements="266" coveredelements="262" complexity="0" loc="162" ncloc="162" packages="6" files="10" classes="10"/>
     <package name="domain.entities">
       <metrics statements="44" coveredstatements="44" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
@@ -145,36 +145,36 @@
         <line num="26" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
-        <line num="34" count="4" type="stmt"/>
-        <line num="36" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="38" count="3" type="stmt"/>
-        <line num="40" count="3" type="cond" truecount="4" falsecount="0"/>
-        <line num="42" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="45" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="57" count="2" type="stmt"/>
-        <line num="59" count="2" type="cond" truecount="4" falsecount="0"/>
-        <line num="61" count="1" type="stmt"/>
-        <line num="64" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="66" count="2" type="stmt"/>
-        <line num="68" count="2" type="cond" truecount="4" falsecount="0"/>
-        <line num="70" count="1" type="stmt"/>
-        <line num="73" count="2" type="stmt"/>
-        <line num="74" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="75" count="1" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="38" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="42" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="44" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="47" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="63" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="70" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="74" count="2" type="cond" truecount="4" falsecount="0"/>
         <line num="76" count="1" type="stmt"/>
-        <line num="79" count="3" type="stmt"/>
-        <line num="81" count="3" type="cond" truecount="4" falsecount="0"/>
-        <line num="83" count="2" type="stmt"/>
-        <line num="88" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="90" count="1" type="stmt"/>
-        <line num="92" count="1" type="stmt"/>
-        <line num="95" count="1" type="stmt"/>
-        <line num="96" count="1" type="stmt"/>
-        <line num="101" count="1" type="stmt"/>
+        <line num="81" count="2" type="stmt"/>
+        <line num="82" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="89" count="3" type="stmt"/>
+        <line num="91" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="93" count="2" type="stmt"/>
+        <line num="98" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="100" count="1" type="stmt"/>
+        <line num="102" count="1" type="stmt"/>
+        <line num="107" count="1" type="stmt"/>
+        <line num="108" count="1" type="stmt"/>
+        <line num="113" count="1" type="stmt"/>
       </file>
     </package>
     <package name="shared.JWT">
