@@ -6,7 +6,7 @@ Sistema produzido com uma API Node.js, MongoDB como banco de dados, REACT JS no 
 
 ### API NodeJS
 
-A API foi feita, em NodeJS, com Driving Domain Design (DDD) e os principios de SOLID.
+A API foi feita, em NodeJS, com Domain Driven Design (DDD) e os principios de SOLID.
 Conta com as seguintes Features:
 
 - Depuração de código com refresh automático após atualização (visual studio code).
