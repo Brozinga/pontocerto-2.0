@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1585425899068" clover="3.2.0">
-  <project timestamp="1585425899068" name="All files">
-    <metrics statements="162" coveredstatements="161" conditionals="75" coveredconditionals="72" methods="29" coveredmethods="29" elements="266" coveredelements="262" complexity="0" loc="162" ncloc="162" packages="6" files="10" classes="10"/>
+<coverage generated="1585533061336" clover="3.2.0">
+  <project timestamp="1585533061336" name="All files">
+    <metrics statements="160" coveredstatements="159" conditionals="75" coveredconditionals="72" methods="29" coveredmethods="29" elements="264" coveredelements="260" complexity="0" loc="160" ncloc="160" packages="6" files="10" classes="10"/>
     <package name="domain.entities">
-      <metrics statements="44" coveredstatements="44" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
+      <metrics statements="43" coveredstatements="43" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
       <file name="login.js" path="C:\APRENDENDO\pontocerto-2.0\back-end\domain\entities\login.js">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="3" count="1" type="stmt"/>
@@ -32,30 +32,29 @@
         <line num="41" count="1" type="stmt"/>
       </file>
       <file name="user.js" path="C:\APRENDENDO\pontocerto-2.0\back-end\domain\entities\user.js">
-        <metrics statements="23" coveredstatements="23" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
         <line num="44" count="1" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="63" count="3" type="stmt"/>
-        <line num="74" count="3" type="stmt"/>
-        <line num="76" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="78" count="2" type="stmt"/>
-        <line num="79" count="2" type="stmt"/>
-        <line num="81" count="2" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="66" count="3" type="stmt"/>
+        <line num="68" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="73" count="2" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="77" count="4" type="stmt"/>
+        <line num="79" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="81" count="3" type="stmt"/>
         <line num="84" count="1" type="stmt"/>
-        <line num="85" count="4" type="stmt"/>
-        <line num="87" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="89" count="3" type="stmt"/>
+        <line num="85" count="2" type="stmt"/>
+        <line num="90" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="92" count="1" type="stmt"/>
-        <line num="93" count="2" type="stmt"/>
-        <line num="95" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="97" count="1" type="stmt"/>
-        <line num="100" count="1" type="stmt"/>
-        <line num="103" count="1" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
       </file>
     </package>
     <package name="domain.enums">
@@ -75,7 +74,7 @@
       </file>
     </package>
     <package name="services">
-      <metrics statements="91" coveredstatements="91" conditionals="54" coveredconditionals="53" methods="16" coveredmethods="16"/>
+      <metrics statements="90" coveredstatements="90" conditionals="54" coveredconditionals="53" methods="16" coveredmethods="16"/>
       <file name="login.service.js" path="C:\APRENDENDO\pontocerto-2.0\back-end\services\login.service.js">
         <metrics statements="17" coveredstatements="17" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
@@ -130,51 +129,50 @@
         <line num="65" count="1" type="stmt"/>
       </file>
       <file name="user.service.js" path="C:\APRENDENDO\pontocerto-2.0\back-end\services\user.service.js">
-        <metrics statements="44" coveredstatements="44" conditionals="32" coveredconditionals="31" methods="8" coveredmethods="8"/>
+        <metrics statements="43" coveredstatements="43" conditionals="32" coveredconditionals="31" methods="8" coveredmethods="8"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="19" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
-        <line num="21" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="25" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="36" count="4" type="stmt"/>
-        <line num="38" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="40" count="3" type="stmt"/>
-        <line num="42" count="3" type="cond" truecount="4" falsecount="0"/>
-        <line num="44" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="47" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
-        <line num="56" count="1" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="63" count="2" type="cond" truecount="4" falsecount="0"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="70" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="72" count="2" type="stmt"/>
-        <line num="74" count="2" type="cond" truecount="4" falsecount="0"/>
-        <line num="76" count="1" type="stmt"/>
-        <line num="81" count="2" type="stmt"/>
-        <line num="82" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="83" count="1" type="stmt"/>
-        <line num="84" count="1" type="stmt"/>
-        <line num="89" count="3" type="stmt"/>
-        <line num="91" count="3" type="cond" truecount="4" falsecount="0"/>
-        <line num="93" count="2" type="stmt"/>
-        <line num="98" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="100" count="1" type="stmt"/>
-        <line num="102" count="1" type="stmt"/>
-        <line num="107" count="1" type="stmt"/>
-        <line num="108" count="1" type="stmt"/>
-        <line num="113" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="19" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="11" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="28" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="32" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="34" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="53" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="60" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="64" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="72" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="79" count="3" type="stmt"/>
+        <line num="81" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="83" count="2" type="stmt"/>
+        <line num="88" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="97" count="1" type="stmt"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
       </file>
     </package>
     <package name="shared.JWT">

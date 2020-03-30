@@ -50,16 +50,8 @@ const UpdateUserPasswordSchema = model
   .with("checkPassword", "password")
   .options({ abortEarly: false });
 
-CreateUserSchema.New = (
-  name,
-  email,
-  password,
-  checkPassword,
-  entryTime,
-  exitTime,
-  acessType,
-  isActive
-) => {
+
+module.exports.NewUserValidation = ({ name, email, password, checkPassword, entryTime, exitTime, acessType, isActive }) => {
   let _user = {
     name,
     email,
@@ -79,9 +71,9 @@ CreateUserSchema.New = (
   validItem.value.password = passCrypt.createPasswordHash(_user.password);
 
   return validItem;
-};
+}
 
-UpdateUserSchema.UpdateUserObject = UserToUpdate => {
+module.exports.UpdateUserValidation = (UserToUpdate) => {
   let validItem = UpdateUserSchema.validate(UserToUpdate);
 
   if (validItem.error) return validItem;
@@ -89,18 +81,18 @@ UpdateUserSchema.UpdateUserObject = UserToUpdate => {
   return validItem;
 };
 
-UpdateUserSchema.UpdatePassword = UserPassword => {
-  let validItem = UpdateUserPasswordSchema.validate(UserPassword);
+module.exports.UpdatePassword = ({ password, checkPassword }) => {
+  let validItem = UpdateUserPasswordSchema.validate({
+    password,
+    checkPassword
+  });
 
   if (validItem.error) return validItem;
 
   validItem.value.password = passCrypt.createPasswordHash(
-    UserPassword.password
+    password
   );
   return validItem;
-};
+}
 
-module.exports = {
-  CreateUserSchema,
-  UpdateUserSchema
-};
+

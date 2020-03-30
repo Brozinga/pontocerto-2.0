@@ -1,22 +1,12 @@
 const response = require("../domain/httpResponses/BasicResponse");
-const CreateUserSchema = require("../domain/entities/user").CreateUserSchema;
-const UpdateUserSchema = require("../domain/entities/user").UpdateUserSchema;
+const UserSchema = require("../domain/entities/user");
 const UserRepository = require("../infra/repository/user.repository");
 const isEmail = require("is-email");
 
 const Service = Repository => {
   return {
     async Create(Body) {
-      let _user = CreateUserSchema.New(
-        Body.name,
-        Body.email,
-        Body.password,
-        Body.checkPassword,
-        Body.entryTime,
-        Body.exitTime,
-        Body.acessType,
-        Body.isActive
-      );
+      let _user = UserSchema.NewUserValidation(Body);
 
       if (_user.error) return response(400, _user.error.details, true);
 
@@ -33,7 +23,7 @@ const Service = Repository => {
 
     async Update(Id, Body) {
 
-      let _user = UpdateUserSchema.UpdateUserObject(Body);
+      let _user = UserSchema.UpdateUserValidation(Body);
 
       if (_user.error) return response(400, _user.error.details, true);
 
@@ -90,7 +80,7 @@ const Service = Repository => {
 
       if (!_findUser || !Object.keys(_findUser).length) return response(404, "Usuário não encontrado!", true);
 
-      let _user = UpdateUserSchema.UpdatePassword({
+      let _user = UserSchema.UpdatePassword({
         password: Password,
         checkPassword: Checkup
       });
