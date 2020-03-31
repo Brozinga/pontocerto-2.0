@@ -1,4 +1,4 @@
-# Projeto de Treinamento
+# Projeto - Ponto Certo | Sistema para Gestão de atividades
 
 ![logo-black-git](https://user-images.githubusercontent.com/28004053/77974869-c14b7a00-72ce-11ea-9a9e-2b6d2e8d38c6.png)
 
