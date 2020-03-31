@@ -1,6 +1,7 @@
-# Projeto de Treinamento
+# Projeto - Ponto Certo | Sistema para Gestão de atividades
 
-## Ponto Certo - 2.0
+![logo-black-git](https://user-images.githubusercontent.com/28004053/77974869-c14b7a00-72ce-11ea-9a9e-2b6d2e8d38c6.png)
+
 
 Sistema produzido com uma API Node.js, MongoDB como banco de dados, REACT JS no Front e REACT NATIVE no Mobile.
 
