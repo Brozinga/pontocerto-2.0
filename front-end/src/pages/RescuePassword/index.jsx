@@ -16,7 +16,7 @@ export default function RescuePassword() {
                 </main>
                 <form className="form-rescue">
                     <div className="mrg login-input">
-                        <AiOutlineMail size={22} color='#686868' />
+                        <AiOutlineMail size={22} color='#8e8e8e' />
                         <input name="email" type="email" placeholder="Digite o seu e-mail" />
                     </div>
 
