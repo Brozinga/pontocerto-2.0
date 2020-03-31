@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:100,400,500,700&display=swap");
+
+@import "../../../../node_modules/izitoast/dist/css/iziToast.min.css";
+
+@import "./variables";
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+*:focus {
+    outline: none;
+}
+
+input, select, textarea {
+    border-radius: 7px;
+    font-family: $font-input;
+    max-width: 100%;
+    width: 100%;
+    border: 0 none;
+    padding: 0 20px 0 50px;
+    background: $light-gray-color-black;
+    color: $gray-color-black;
+    border: 1px solid $gray-color-black;
+    border-radius: 50px;
+    transition: .2s ease-in-out;
+    transition-property: box-shadow, border-color;
+    height: 45px;
+    vertical-align: middle;
+    display: inline-block;
+
+    ::-webkit-input-placeholder { /* Edge */
+        color: $gray-color-black;
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $gray-color-black;
+    }
+
+    ::placeholder {
+        color: $gray-color-black;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $green-color-black;
+        box-shadow: 0 0 10px $green-color-black;
+    }
+}
+
+button {
+    cursor: pointer;
+    font-family: $font-input;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: $font-second;
+    font-weight: 100;
+    color: $green-color-black;
+}
+
+p {
+    color: $white-color-black;
+    font-family: $font-second;
+}
+
+.btn-primary {
+    height: 45px;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    background: $button-green-color-black;
+    transition: filter .2s;
+    color: $white-color-black;
+    width: 100%;
+    box-shadow: 0 7px 7px $boxshadow-color-black;
+
+    &:hover {
+        transition: filter .2s;
+        filter: brightness(0.8);
+    }
+
+    &:active {
+        transform: translateY(4px);
+        box-shadow: 0 3px 7px $boxshadow-color-black;
+    }
+}
+
+.background {
+    background-image: url("../../../assets/images/wallpaper.jpg");
+}
+
+.container {
+    max-width: 1120px;
+    width: 100%;
+    display: flex;
+    padding: 0px 20px;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.mrg {
+    margin-bottom: 20px;
+}
+
+.link {
+    outline: none;
+    color: $button-green-color-black;
+    font-family: $font-second;
+    text-decoration: none;
+    padding: 20px;
+    transition: .2s ease-in-out;
+    transition-property: color;
+
+    &:hover {
+        color: $light-gray-color-black;
+    }
+}

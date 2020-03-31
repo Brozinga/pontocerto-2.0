@@ -1,0 +1,27 @@
+@import "../../assets/styles/scss/variables";
+
+.container-rescue {
+    .form-rescue {
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .btn-primary {
+        max-width: 300px;
+    }
+
+    .container-informations {
+            text-align: center;
+
+            h1 {
+                margin-bottom: 40px;
+                font-size: 30pt;
+            }
+
+            p {
+                font-size: 18px;
+                max-width: 700px;
+                margin-bottom: 40px;
+            }
+        }
+}
