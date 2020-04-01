@@ -21,7 +21,7 @@ Conta com as seguintes Features:
 - Sistema de Permissionamento "ADMIN", "USUARIO" para acesso a cada rota da API.
 - Express-Status para acompanhamento em tempo real de consumo de CPU, RAM, requisições etc.
 - Documentação interativa com Swagger.
-- JEST adicionado para testes unitários e de integração (em andamento).
+- JEST adicionado para testes unitários e de integração.
 - Modulo Cluster nativo (multithreading).
 - Melhorias de performance como compressão de dados, todos os processos assíncronos, sem logs de console em produção.
 - Protocolo HTTP2.
