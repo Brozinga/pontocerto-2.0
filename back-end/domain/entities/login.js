@@ -10,13 +10,12 @@ const Login = model
   })
   .options({ abortEarly: false });
 
-Login.ValidatePassword = (Password, CryptPassword) => {
+  module.exports.ValidatePassword = (Password, CryptPassword) => {
   return passCrypt.comparePasswordHash(Password, CryptPassword);
 };
 
-Login.DataValidate = (User, Password) => {
+module.exports.Validation = (User, Password) => {
   let validItem = Login.validate({ email: User, password: Password });
   return validItem;
 };
 
-module.exports = Login;

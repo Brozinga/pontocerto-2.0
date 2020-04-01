@@ -1,15 +1,10 @@
 const ScheduleRepository = require("../infra/repository/schedule.repository");
 const response = require("../domain/httpResponses/BasicResponse");
-const Schedule = require("../domain/entities/schedule");
+const ScheduleSchema = require("../domain/entities/schedule");
 const Service = Repository => {
   return {
     async Create(Body) {
-      let _schedule = Schedule.NewScheduleObject(
-        Body.description,
-        Body.userId,
-        Body.entryTime,
-        Body.exitTime
-      );
+      let _schedule = ScheduleSchema.NewScheduleValidation(Body);
 
       if (_schedule.error) return response(400, _schedule.error.details, true);
 
@@ -20,7 +15,8 @@ const Service = Repository => {
     async Update(Id, Body) {
       let _findSchedule = await Repository.GetById(Id);
 
-      if (!_findSchedule || !Object.keys(_findSchedule).length) return response(404, "Tarefa não encontrada!", true);
+      if (!_findSchedule || !Object.keys(_findSchedule).length)
+        return response(404, "Tarefa não encontrada!", true);
 
       let scheduleToUpdated = Object.assign(_findSchedule, Body);
 
@@ -29,7 +25,7 @@ const Service = Repository => {
       delete validation.__v;
       delete validation._id;
 
-      let _schedule = Schedule.UpdateScheduleObject(validation);
+      let _schedule = ScheduleSchema.UpdateScheduleValidation(validation);
 
       if (_schedule.error) return response(400, _schedule.error.details, true);
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1585533061336" clover="3.2.0">
-  <project timestamp="1585533061336" name="All files">
-    <metrics statements="160" coveredstatements="159" conditionals="75" coveredconditionals="72" methods="29" coveredmethods="29" elements="264" coveredelements="260" complexity="0" loc="160" ncloc="160" packages="6" files="10" classes="10"/>
+<coverage generated="1585752215710" clover="3.2.0">
+  <project timestamp="1585752215710" name="All files">
+    <metrics statements="159" coveredstatements="158" conditionals="75" coveredconditionals="72" methods="29" coveredmethods="29" elements="263" coveredelements="259" complexity="0" loc="159" ncloc="159" packages="6" files="10" classes="10"/>
     <package name="domain.entities">
-      <metrics statements="43" coveredstatements="43" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
+      <metrics statements="41" coveredstatements="41" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="7"/>
       <file name="login.js" path="C:\APRENDENDO\pontocerto-2.0\back-end\domain\entities\login.js">
-        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
@@ -14,10 +14,9 @@
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="4" type="stmt"/>
         <line num="19" count="4" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
       </file>
       <file name="schedule.js" path="C:\APRENDENDO\pontocerto-2.0\back-end\domain\entities\schedule.js">
-        <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
@@ -29,7 +28,6 @@
         <line num="34" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="36" count="1" type="stmt"/>
         <line num="38" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
       </file>
       <file name="user.js" path="C:\APRENDENDO\pontocerto-2.0\back-end\domain\entities\user.js">
         <metrics statements="22" coveredstatements="22" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
@@ -74,7 +72,7 @@
       </file>
     </package>
     <package name="services">
-      <metrics statements="90" coveredstatements="90" conditionals="54" coveredconditionals="53" methods="16" coveredmethods="16"/>
+      <metrics statements="91" coveredstatements="91" conditionals="54" coveredconditionals="53" methods="16" coveredmethods="16"/>
       <file name="login.service.js" path="C:\APRENDENDO\pontocerto-2.0\back-end\services\login.service.js">
         <metrics statements="17" coveredstatements="17" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
@@ -96,37 +94,38 @@
         <line num="35" count="1" type="stmt"/>
       </file>
       <file name="schedule.service.js" path="C:\APRENDENDO\pontocerto-2.0\back-end\services\schedule.service.js">
-        <metrics statements="30" coveredstatements="30" conditionals="14" coveredconditionals="14" methods="6" coveredmethods="6"/>
+        <metrics statements="31" coveredstatements="31" conditionals="14" coveredconditionals="14" methods="6" coveredmethods="6"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="11" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="14" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
-        <line num="23" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="9" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="18" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
         <line num="28" count="2" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="34" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="44" count="2" type="stmt"/>
-        <line num="46" count="2" type="cond" truecount="4" falsecount="0"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="51" count="2" type="stmt"/>
-        <line num="53" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="54" count="1" type="stmt"/>
+        <line num="30" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="42" count="2" type="cond" truecount="4" falsecount="0"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="49" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
         <line num="56" count="1" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
       </file>
       <file name="user.service.js" path="C:\APRENDENDO\pontocerto-2.0\back-end\services\user.service.js">
         <metrics statements="43" coveredstatements="43" conditionals="32" coveredconditionals="31" methods="8" coveredmethods="8"/>

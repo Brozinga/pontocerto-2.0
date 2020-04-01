@@ -15,7 +15,7 @@ module.exports = {
       url: "https://opensource.org/licenses/MIT"
     }
   },
-  host: "localhost:3000",
+  host: `localhost:${process.env.PORT}`,
   basePath: "/api/v1",
   ...security,
   tags: [

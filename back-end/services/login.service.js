@@ -5,7 +5,7 @@ const JWT = require("../shared/JWT");
 const Service = Repository => {
   return {
     async VerifyUserLogin(email, password) {
-      let valid = Login.DataValidate(email, password);
+      let valid = Login.Validation(email, password);
       if (valid.error) return response(400, valid.error.details, true);
 
       const user = await Repository.GetByEmailAddPassword(valid.value.email);

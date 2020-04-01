@@ -15,7 +15,7 @@ const Schedule = model
   })
   .options({ abortEarly: false });
 
-Schedule.NewScheduleObject = (description, userId, entryTime, exitTime) => {
+  module.exports.NewScheduleValidation = ({description, userId, entryTime, exitTime}) => {
   let _schedule = {
     description,
     userId,
@@ -28,7 +28,7 @@ Schedule.NewScheduleObject = (description, userId, entryTime, exitTime) => {
   return validItem;
 };
 
-Schedule.UpdateScheduleObject = UpdateObject => {
+module.exports.UpdateScheduleValidation = UpdateObject => {
   let validItem = Schedule.validate(UpdateObject);
 
   if (validItem.error) return validItem;
@@ -38,4 +38,3 @@ Schedule.UpdateScheduleObject = UpdateObject => {
   return validItem;
 };
 
-module.exports = Schedule;
