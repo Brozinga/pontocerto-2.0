@@ -1,11 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import './style.scss';
 
-export default function Loading({ visible }) {
-    let loading = '';
+import { EventEmitter } from "../../../services/event";
 
+export default function Loading() {
+    
+    let loading = '';
+    let [visible, setVible] = useState(false);
+    EventEmitter.subscribe('loading', event => setVible(event));
     useEffect(() => {
+        
         if (visible) {
             loading.classList.add('visible');
         } else {

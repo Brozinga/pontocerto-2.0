@@ -1,10 +1,15 @@
 import '../src/assets/styles/scss/global.scss';
-import React from 'react';
+import React, { Fragment } from 'react';
 import Routes from './routes';
+
+import Loading from './pages/Layout/Loading';
 
 export default function App() {
 
   return (
-    <Routes/>
+    <Fragment>
+      <Loading />
+      <Routes />
+    </Fragment>
   );
 }
