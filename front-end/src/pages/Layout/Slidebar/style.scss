@@ -1,0 +1,73 @@
+@import "../../../assets/styles/scss/variables";
+
+.menu-container, .links-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 6px;
+    overflow: hidden;
+}
+
+.menu-container {
+    background-color: $primary-color-black;
+}
+
+.links-container {
+    a {
+        margin-bottom: 30px;
+    }
+}
+
+.container-logo {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0px 35px 0px;
+    .logo-pequeno {
+        width: 60px;
+    }
+}
+
+.exit {
+    padding: 2px;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+a {
+    margin: 3px 3px 3px 3px;
+    position: relative;
+    svg {
+        transition: color 0.4s;
+
+        &:hover {
+            color: $link-hover-black !important;
+        }
+    }
+}
+
+.is-active {
+    &:before {
+        content: '';
+        position: absolute;
+        width: 30px;
+        left: 50%;
+        transform: translateX(-50%) scaleX(1);
+        height: 5px;
+        background: $green-color-black;
+        display: flex;
+        align-items: center;
+        border-radius: 20px;
+        bottom: -5px;
+        box-shadow: 0 0px 5px $green-color-black;
+        animation-name: animation_green_bar;
+        animation-duration: .5s;
+    }
+}
+
+@keyframes animation_green_bar {
+
+    0%   {width: 0px;}
+    100% {width: 30px;}
+  }

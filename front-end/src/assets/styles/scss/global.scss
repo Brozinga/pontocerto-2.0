@@ -113,10 +113,20 @@ p {
     padding: 0px 20px;
     flex-direction: column;
     margin: 0 auto;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
 }
+
+.b-container {
+    background: $boxshadow-color-black;
+    height: 100vh;
+    display: flex;
+}
+
+.flex-center {
+    align-items: center;
+    justify-content: center;
+}
+
 
 .mrg {
     margin-bottom: 20px;

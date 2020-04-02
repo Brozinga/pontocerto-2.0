@@ -1,19 +1,27 @@
 import React from 'react'
 import { AiOutlineUser, AiOutlineUnlock } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import Logo from '../../assets/images/logo-w300.png';
 
 import './style.scss';
 
 export default function Login() {
+
+    const history = useHistory();
+
+    function handleTimesheet(e) {
+        e.preventDefault();
+        history.push('/timesheet');
+    }
+
     return (
         <div className="background">
-            <div className="container">
+            <div className="container flex-center">
                 <div className="container-logo">
                     <img src={Logo} alt="ponto certo" />
                 </div>
-                <form className="login">
+                <form className="login" onSubmit={handleTimesheet}>
                     <div className="mrg login-input">
                         <AiOutlineUser size={22} color='#8e8e8e' />
                         <input name="username" type="email" placeholder="Nome de usuário" />

@@ -6,7 +6,7 @@ import './style.scss';
 export default function RescuePassword() {
     return (
         <div className="background">
-            <div className="container container-rescue">
+            <div className="container container-rescue flex-center">
                 <main className="container-informations">
                     <h1>Recuperação de Senha</h1>
                     <p>

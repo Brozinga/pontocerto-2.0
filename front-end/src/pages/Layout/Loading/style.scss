@@ -1,0 +1,130 @@
+@import "../../../assets/styles/scss/variables";
+
+.loading-container {
+    background-color: $boxshadow-color-black !important;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    text-align: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s .7s, opacity .7s linear;
+
+    h2 {
+        margin-top: 200px;
+        margin-left: 20px;
+        font-family: $font-input;
+    }
+
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .7s linear;
+  }
+
+.clock {
+    border-radius: 70px;
+    border: 3px solid $green-color-black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    display: block;
+    width: 120px;
+    height: 120px;
+}
+
+.clock:after {
+    content: "";
+    position: absolute;
+    background-color: $green-color-black;
+    top: 13px;
+    left: 48%;
+    height: 50px;
+    width: 4px;
+    border-radius: 5px;
+    -webkit-transform-origin: 50% 97%;
+    transform-origin: 50% 97%;
+    -webkit-animation: grdAiguille 2s linear infinite;
+    animation: grdAiguille 2s linear infinite;
+}
+
+@-webkit-keyframes grdAiguille {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes grdAiguille {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.clock:before {
+    content: "";
+    position: absolute;
+    background-color: $green-color-black;
+    top: 24px;
+    left: 48%;
+    height: 40px;
+    width: 4px;
+    border-radius: 5px;
+    -webkit-transform-origin: 50% 94%;
+    transform-origin: 50% 94%;
+    -webkit-animation: ptAiguille 12s linear infinite;
+    animation: ptAiguille 12s linear infinite;
+}
+
+@-webkit-keyframes ptAiguille {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes ptAiguille {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes display_block {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    50% { 
+        display: flex;
+        opacity: 1;
+    }
+
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
