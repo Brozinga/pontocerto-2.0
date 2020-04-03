@@ -1,16 +1,16 @@
 import React from 'react';
 
-import './style.scss';
+import './styles.scss';
 
 import Sidebar from '../Layout/Sidebar';
 
-export default function Dashboard() {
+export default function UserManagement() {
 
   return (
     <div className="b-container">
       <Sidebar />
-      <div className="container">
-        <h1>Dashboard</h1>
+      <div className="container um-container">
+        <h2>Gerenciamento de Usuários</h2>
       </div>
     </div>
   );

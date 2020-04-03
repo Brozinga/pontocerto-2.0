@@ -13,7 +13,7 @@
 
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s .7s, opacity .7s linear;
+    transition: opacity .2s linear;
 
     h2 {
         margin-top: 200px;
@@ -26,7 +26,7 @@
 .visible {
     visibility: visible;
     opacity: 1;
-    transition: opacity .7s linear;
+    transition: opacity .2s linear;
   }
 
 .clock {

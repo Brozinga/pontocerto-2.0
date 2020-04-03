@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import './style.scss';
 
-import Slidebar from '../Layout/Slidebar';
+import Sidebar from '../Layout/Sidebar';
 
 import { EventEmitter } from '../../services/event';
 import api from '../../services/api';
@@ -18,7 +18,7 @@ export default function Timesheet() {
 
   return (
     <div className="b-container">
-      <Slidebar />
+      <Sidebar />
       <div className="container">
         <h1>Timesheet</h1>
       </div>
