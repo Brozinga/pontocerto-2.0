@@ -33,13 +33,19 @@ app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 logger(app, process.env.MORGAN_LOG);
-app.use(require("../routes"));
 
 app.use(
   `${version}/api-docs`,
   swaggerUi.serve,
   swaggerUi.setup(swaggerDocument)
 );
+
+require('../middlewares/SwaggerUrlEnabled')(app);
+
+app.use(require("../routes"));
+
+require('../middlewares/RouteNotFound')(app);
+
 
 //ERROR HANDLER -- TRATAR TODOS OS ERROS DO AP
 app.use(async (err, req, res, next) => {
