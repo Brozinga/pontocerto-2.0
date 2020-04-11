@@ -22,7 +22,7 @@ export default function Sidebar() {
 
   return (
     <Fragment>
-      <nav className="menu-container hide" ref={ref => menu = ref}>
+      <nav className="menu-container" ref={ref => menu = ref}>
         <div className="links-container">
           <NavLink to="/timesheet" activeClassName="is-active"><AiOutlineClockCircle color="#8e8e8e" size={35} /><span>
             Timesheet
