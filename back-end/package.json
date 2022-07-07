@@ -44,7 +44,7 @@
     "jsonwebtoken": "^8.5.1",
     "lz-string": "^1.4.4",
     "lzutf8": "^0.5.5",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mongoose": "^5.9.5",
     "mongoose-unique-validator": "^2.0.3",
     "morgan": "^1.10.0",
